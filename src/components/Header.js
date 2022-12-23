@@ -6,8 +6,8 @@ function Header() {
         <div className="h-20 w-fit flex justify-between">
           <img className="h-auto mr-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Jawaharlal_Nehru_University_Logo_vectorized.svg/848px-Jawaharlal_Nehru_University_Logo_vectorized.svg.png?20200107230203" alt="JNU_logo" />
           <div className='flex-col justify-between my-auto'>
-            <span className='text-3xl font-bold'>Alumni Association of JNU</span>
-            <h4 className='font-semibold'>Jawaharlal Nehru University</h4>
+            <span className='text-3xl font-bold select-none'>Alumni Association of JNU</span>
+            <h4 className='font-semibold select-none'>Jawaharlal Nehru University</h4>
           </div>
         </div>
         <div className='flex justify-between my-auto'>
