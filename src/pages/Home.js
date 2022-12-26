@@ -1,50 +1,54 @@
 import React from 'react'
 import Header from "../components/Header";
 import Carousel from 'react-bootstrap/Carousel';
+import Cards from "../components/Cards";
 function Home() {
   return (
     <>
       <Header></Header>
-      <div className='w-11/12 mx-auto p-5'>
-        <Carousel>
-          <Carousel.Item>
+      <div className="w-11/12 mx-auto my-[7.5rem] ">
+        <Carousel className="h-[30rem]">
+          <Carousel.Item className="h-[30rem]">
             <img
-              className="d-block w-100"
-              src="https://media.gettyimages.com/id/533189605/photo/lotus-temple.jpg?s=612x612&w=gi&k=20&c=KQYa0vtidGoVsjstJ5e9i_0ZCAiEcD_ZYpkE6cCDtVs="
+              className="d-block w-100 h-[30rem]"
+              src="https://d1h684srpghjti.cloudfront.net/assets/images/gallary_photos/t1602785878_2nRiWiWdPZ.jpg?w=2560&format=webp"
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3>Aerial View</h3>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
+          <Carousel.Item className='h-[30rem]'>
             <img
-              className="d-block w-100"
-              src="https://media.istockphoto.com/id/481216092/photo/diwan-i-am-at-the-red-fort-in-delhi-india.jpg?s=612x612&w=0&k=20&c=h7Hj_hVNa8NO17rkfGtQTMavqGpxOck10d_lo4BCFDM="
+              className="d-block w-100 h-[30rem]"
+              src="https://d1h684srpghjti.cloudfront.net/assets/images/gallary_photos/t1602785863_RHMv1V3OwQ.jpg?w=2560&format=webp"
               alt="Second slide"
             />
 
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3>Jawaharlal Nehru Statue</h3>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
+          <Carousel.Item className='h-[30rem]'>
             <img
-              className="d-block w-100"
-              src="https://media.gettyimages.com/id/482018359/photo/india-gate-new-delhi.jpg?s=612x612&w=gi&k=20&c=e9heXVuTwxzgoqCl2mEQjti5yAVKNZJgg9MtbfPcQlM="
+              className="d-block w-100 h-[30rem]"
+              src="https://d1h684srpghjti.cloudfront.net/assets/images/gallary_photos/t1605857970_ilrCPyf3sW.jpg?w=2560&format=webp"
               alt="Third slide"
             />
 
             <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+              <h3>Convention Center</h3>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+      </div>
+      <div className='w-11/12 mx-auto'>
+        <span className='flex justify-center self-center text-3xl font-semibold'>Notable Alumni</span>
+        <div className='flex justify-center self-center my-5 gap-5'>
+          <Cards src="https://d1h684srpghjti.cloudfront.net/assets/images/gallary_photos/t1599411482_hNPsYn27h7.jpg?w=320&format=webp" desc="Minister of Finance & Corporate Affairs" title="Dr. Nirmala Sitharaman"></Cards>  
+          <Cards src="https://d1h684srpghjti.cloudfront.net/assets/images/gallary_photos/t1599413518_IDrCj73BVU.jpg?w=320&format=webp" title="Dr Subrahmanyam Jaishankar" desc="Minister of External Affairs"></Cards>
+          <Cards src="https://d1h684srpghjti.cloudfront.net/assets/images/gallary_photos/t1599413445_NwTX4Tk5nk.jpg?w=320&format=webp" title="Prof Abhijit Vinayak Banerjee" desc="Nobel Laureate in Economics (2019)"></Cards>
+        </div>
       </div>
     </>
   )
