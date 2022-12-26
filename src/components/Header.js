@@ -1,8 +1,10 @@
 import React from 'react';
+import { memo } from "react";
+import Navbar from "./Navbar";
 function Header() {
   return (
     <>
-      <section className=' bg-neutral-100 flex justify-between w-11/12 mx-auto py-3 sticky top-0 border-black border-b-2'>
+      <section className='w-11/12 mx-auto bg-neutral-100 flex justify-between py-3 border-black border-b-2'>
         <div className="h-20 w-fit flex justify-between">
           <img className="h-auto mr-3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Jawaharlal_Nehru_University_Logo_vectorized.svg/848px-Jawaharlal_Nehru_University_Logo_vectorized.svg.png?20200107230203" alt="JNU_logo" />
           <div className='flex-col justify-between my-auto'>
@@ -11,15 +13,14 @@ function Header() {
           </div>
         </div>
         <div className='flex justify-between my-auto'>
-          <button type="button" className="btn btn-outline-primary rounded-full mr-2">Log In</button>
-          <button type="button" className="btn btn-outline-primary rounded-full mr-2">Sign Up</button>
+          <button type="button" className="btn btn-outline-primary rounded-full mr-2">Log In / Sign Up</button>
         </div>
       </section>
       <section>
-      
+          <Navbar></Navbar>
       </section>
     </>
   )
 }
 
-export default Header;
+export default memo(Header);
