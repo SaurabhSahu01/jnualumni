@@ -1,7 +1,6 @@
 import React from 'react';
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
-import HomeIcon from '@mui/icons-material/Home';
 import {Link} from "react-router-dom";
 import { Home } from '@mui/icons-material';
 function Footer() {
