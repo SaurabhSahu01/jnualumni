@@ -1,53 +1,60 @@
 import React from 'react';
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Home } from '@mui/icons-material';
 function Footer() {
     return (
-        <div className='bg-blueaccent flex w-full '>
-            <div className='py-6 px-10 max-w-5xl mx-auto'>
-                <div className='grid grid-cols-4 gap-20 center'>
-                    <div className='mb-5 p-6'>
-                        <h1 className='text-2xl text-white mb-2 font-semibold'>USEFUL LINKS</h1>
-                        <ul className='text-white'>
-                            <li className='m-1'>Join</li>
-                            <li className='m-1'>About</li>
-                            <li className='m-1'>Batchmates</li>
-                            <li className='m-1'>Notice</li>
-                        </ul>
-                    </div>
-                    <div className='mb-5 p-6'>
-                    <h1 className='text-2xl text-white mb-2 font-semibold'>SERVICES</h1>
-                        <ul className='text-white'>
-                            <li className='m-1'>About Us</li>
-                            <li className='m-1'>Terms and Conditions</li>
-                            <li className='m-1'>Opportunities</li>
-                            <li className='m-1'>Careers</li>
-                        </ul>
-                    </div>
-                    <div className='p-6' style={{width:"200%"}}>
-                        <h1 className='text-2xl text-white mb-2 ml-11 font-semibold'>CONTACT</h1>
-                        <ul className='text-white'>    
-                            <li className='mb-3 flex  self-center gap-2'>
-                                <Home fontSize='large' className="flex-2"></Home>
-                                <div><p className="flex-1">Alumni Association of JNU (AAJ)</p>
-                                <p>Office : Room No. 101 JNU Convention Centre, JNU, New Delhi-110067, India</p></div> 
-                            </li>
-                            <li className='mb-3 flex gap-2  self-center'>
-                                <CallIcon fontSize='large' className='flex-2'></CallIcon>
-                                <div><p className="flex-1">Mr Satyendra (Assistant Manager) +917011953096 </p>
-                                <p> Dr Maheep (Convenor Membership Drive) +919911963456</p></div>
-                            </li>
-                            <li className='mb-3 flex gap-2  self-center'>
-                                <EmailIcon fontSize="large" className='flex-2'></EmailIcon>
-                                <Link to="#" onClick={(e) => {
-                                    window.location.href = 'mailto: aajjnu1@gmail.com';
-                                    e.preventDefault();
-                                }} className="flex-2">aajjnu1@gmail.com</Link>
-                            </li>
-                        </ul>
-                    </div>
+        <div className="bg-blueaccent">
+            <div className='w-11/12 mx-auto grid grid-cols-3 gap-1 py-5 text-white'>
+                <div className='grid justify-items-center'>
+                    <span className='text-2xl text-bold'>USEFUL LINKS</span>
+                    <ul className='mt-4 text-lg font-semibold'>
+                        <li className="my-1">Join</li>
+                        <li className="my-1">About</li>
+                        <li className="my-1">Batchmates</li>
+                        <li className="my-1">Notice</li>
+                    </ul>
+                </div>
+                <div className="grid justify-items-center">
+                    <span className='text-2xl text-bold'>SERVICES</span>
+                    <ul className='mt-4 text-lg font-semibold'>
+                        <li className="my-1">About Us</li>
+                        <li className="my-1">Terms and Conditions</li>
+                        <li className="my-1">Opportunities</li>
+                        <li className="my-1">Career</li>
+                    </ul>
+
+                </div>
+                <div className="grid justify-items-center">
+                    <span className='text-2xl text-bold'>CONTACT</span>
+                    <ul className='mt-4 text-lg font-semibold'>
+                        <li className="my-1 flex self-center">
+                            <Home className='mx-2' fontSize='large'></Home>
+                            <div className="flex-col">
+                                <p>Alumni Association of JNU(AAJ)</p>
+                                <p>AAJ Office: Room No. 101</p>
+                                <p>JNU Convention Center,</p>
+                                <p>JNU, New Delhi-110067,</p>
+                                <p>India</p>
+                            </div>
+                        </li>
+                        <li className="my-1 flex self-center">
+                            <CallIcon className='mx-2' fontSize='large'></CallIcon>
+                            <div className="flex-col">
+                                <p>Mr Satyendra (Assistant Manager)</p>
+                                <p>+91-7011953096</p>
+                                <p>Dr. Maheep (Convernor Membership Drive)</p>
+                                <p>+91-9911963456</p>
+                            </div>
+                        </li>
+                        <li className="my-1 flex self-center">
+                            <EmailIcon className='mx-2' fontSize='large'></EmailIcon>
+                            <Link to="#" href="window.mailto=""></Link>
+                        </li>
+                        
+                    </ul>
+
                 </div>
             </div>
         </div>
