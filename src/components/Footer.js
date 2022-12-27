@@ -7,7 +7,7 @@ function Footer() {
     return (
         <div className='bg-blueaccent flex w-full '>
             <div className='py-6 px-10 max-w-5xl mx-auto'>
-                <div className='grid grid-cols-3 gap-20 center'>
+                <div className='grid grid-cols-4 gap-20 center'>
                     <div className='mb-5 p-6'>
                         <h1 className='text-2xl text-white mb-2 font-semibold'>USEFUL LINKS</h1>
                         <ul className='text-white'>
@@ -26,17 +26,18 @@ function Footer() {
                             <li className='m-1'>Careers</li>
                         </ul>
                     </div>
-                    <div className='p-6'>
+                    <div className='p-6' style={{width:"200%"}}>
                         <h1 className='text-2xl text-white mb-2 ml-11 font-semibold'>CONTACT</h1>
                         <ul className='text-white'>    
                             <li className='mb-3 flex  self-center gap-2'>
                                 <Home fontSize='large' className="flex-2"></Home>
-                                <span className='flex-3'>Alumni Association of JNU (AAJ) AAJ Office : Room No. 101 JNU Convention Centre, JNU, New Delhi-110067, India</span>
+                                <div><p className="flex-1">Alumni Association of JNU (AAJ)</p>
+                                <p>Office : Room No. 101 JNU Convention Centre, JNU, New Delhi-110067, India</p></div> 
                             </li>
                             <li className='mb-3 flex gap-2  self-center'>
                                 <CallIcon fontSize='large' className='flex-2'></CallIcon>
-                                <span className="flex-1">Mr Satyendra (Assistant Manager) +917011953096 
-                                Dr Maheep (Convenor Membership Drive) +919911963456</span>
+                                <div><p className="flex-1">Mr Satyendra (Assistant Manager) +917011953096 </p>
+                                <p> Dr Maheep (Convenor Membership Drive) +919911963456</p></div>
                             </li>
                             <li className='mb-3 flex gap-2  self-center'>
                                 <EmailIcon fontSize="large" className='flex-2'></EmailIcon>
