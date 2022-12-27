@@ -8,26 +8,26 @@ function Footer() {
         <div className="bg-blueaccent">
             <div className='w-11/12 mx-auto grid grid-cols-3 gap-1 py-5 text-white'>
                 <div className='grid justify-items-center'>
-                    <span className='text-2xl text-bold'>USEFUL LINKS</span>
-                    <ul className='mt-4 text-lg font-semibold'>
-                        <li className="my-1">Join</li>
-                        <li className="my-1">About</li>
-                        <li className="my-1">Batchmates</li>
-                        <li className="my-1">Notice</li>
+                    <p className='text-2xl font-bold'>USEFUL LINKS</p>
+                    <ul className='text-lg font-semibold'>
+                        <li className="mb-3">Join</li>
+                        <li className="mb-3">About</li>
+                        <li className="mb-3">Batchmates</li>
+                        <li className="mb-3">Notice</li>
                     </ul>
                 </div>
                 <div className="grid justify-items-center">
-                    <span className='text-2xl text-bold'>SERVICES</span>
-                    <ul className='mt-4 text-lg font-semibold'>
-                        <li className="my-1">About Us</li>
-                        <li className="my-1">Terms and Conditions</li>
-                        <li className="my-1">Opportunities</li>
-                        <li className="my-1">Career</li>
+                    <p className='text-2xl font-bold'>SERVICES</p>
+                    <ul className='text-lg font-semibold'>
+                        <li className="mb-3">About Us</li>
+                        <li className="mb-3">Terms and Conditions</li>
+                        <li className="mb-3">Opportunities</li>
+                        <li className="mb-3">Career</li>
                     </ul>
 
                 </div>
                 <div className="grid justify-items-center">
-                    <span className='text-2xl text-bold'>CONTACT</span>
+                    <p className='text-2xl font-bold'>CONTACT</p>
                     <ul className='mt-4 text-lg font-semibold'>
                         <li className="my-1 flex self-center">
                             <Home className='mx-2' fontSize='large'></Home>
@@ -50,11 +50,12 @@ function Footer() {
                         </li>
                         <li className="my-1 flex self-center">
                             <EmailIcon className='mx-2' fontSize='large'></EmailIcon>
-                            <Link to="#" href="window.mailto=""></Link>
-                        </li>
-                        
+                            <Link to="#" onClick={(e) => {
+                                    window.location.href = 'mailto: aajjnu1@gmail.com';
+                                    e.preventDefault();
+                                }}>aajjnu1@gmail.com</Link>
+                        </li>   
                     </ul>
-
                 </div>
             </div>
         </div>
