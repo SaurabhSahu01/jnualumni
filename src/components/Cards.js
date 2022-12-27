@@ -7,7 +7,7 @@ function Cards(props) {
         AOS.init();
       }, [])
     return (
-        <Card style={{ width: '18rem' }} className="hover:shadow-xl" data-aos="zoom-in-up" data-aos-duration="800">
+        <Card style={{ width: '18rem' }} className="hover:shadow-xl pt-6" data-aos="zoom-in-up" data-aos-duration="800">
             <Card.Img variant="top" src={props.src} className="w-48 h-48 rounded-full object-cover self-center m-1"/>
             <Card.Body>
                 <Card.Title className="text-center">{props.title}</Card.Title>

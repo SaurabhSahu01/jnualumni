@@ -2,6 +2,7 @@ import React from 'react'
 import Header from "../components/Header";
 import Carousel from 'react-bootstrap/Carousel';
 import Cards from "../components/Cards";
+import Footer from '../components/Footer'
 function Home() {
   return (
     <>
@@ -50,6 +51,7 @@ function Home() {
           <Cards src="https://d1h684srpghjti.cloudfront.net/assets/images/gallary_photos/t1599413445_NwTX4Tk5nk.jpg?w=320&format=webp" title="Prof Abhijit Vinayak Banerjee" desc="Nobel Laureate in Economics (2019)"></Cards>
         </div>
       </div>
+      <Footer></Footer>
     </>
   )
 }
