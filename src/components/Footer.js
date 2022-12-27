@@ -28,7 +28,7 @@ function Footer() {
                         </ul>
                     </div>
                     <div className='p-6'>
-                        <h1 className='text-2xl text-white mb-2 text-center font-semibold'>CONTACT</h1>
+                        <h1 className='text-2xl text-white mb-2 ml-11 font-semibold'>CONTACT</h1>
                         <ul className='text-white'>    
                             <li className='mb-3 flex  self-center gap-2'>
                                 <Home fontSize='large' className="flex-2"></Home>
