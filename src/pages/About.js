@@ -2,6 +2,7 @@ import React from 'react'
 import Header from "../components/Header";
 import Footer from '../components/Footer'
 import TeamCard from '../components/TeamCard'
+import image from '../images/TeamCard.jpg' 
 function About() {
   return (
     <>
@@ -43,22 +44,22 @@ function About() {
         <div>
           <h1 className='text-center text-4xl'>Executive committee</h1>
           <div className='w-11/12 p-3 gap-3 m-auto my-3 flex flex-wrap justify-center'>
-            <TeamCard className='inline-block' src='https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/formsdata/1599039134_rvJWCikSBN.jpg' title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
-            <TeamCard className='inline-block' src='https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/formsdata/1599039134_rvJWCikSBN.jpg' title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
-            <TeamCard className='inline-block' src='https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/formsdata/1599039134_rvJWCikSBN.jpg' title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
-            <TeamCard className='inline-block' src='https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/formsdata/1599039134_rvJWCikSBN.jpg' title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
-            <TeamCard className='inline-block' src='https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/formsdata/1599039134_rvJWCikSBN.jpg' title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
-            <TeamCard className='inline-block' src='https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/formsdata/1599039134_rvJWCikSBN.jpg' title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
-            <TeamCard className='inline-block' src='https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/formsdata/1599039134_rvJWCikSBN.jpg' title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
+            <TeamCard className='inline-block' src={image} title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
+            <TeamCard className='inline-block' src={image} title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
+            <TeamCard className='inline-block' src={image} title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
+            <TeamCard className='inline-block' src={image} title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
+            <TeamCard className='inline-block' src={image} title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
+            <TeamCard className='inline-block' src={image} title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
+            <TeamCard className='inline-block' src={image} title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
           </div>
         </div>
         <div>
           <h1 className='text-center text-4xl'>Development Team</h1>
           <div className='w-11/12 p-3 gap-3 m-auto my-3 flex flex-wrap justify-center'>
-            <TeamCard className='inline-block' src='https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/formsdata/1599039134_rvJWCikSBN.jpg' title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
-            <TeamCard className='inline-block' src='https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/formsdata/1599039134_rvJWCikSBN.jpg' title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
-            <TeamCard className='inline-block' src='https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/formsdata/1599039134_rvJWCikSBN.jpg' title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
-            <TeamCard className='inline-block' src='https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/formsdata/1599039134_rvJWCikSBN.jpg' title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
+            <TeamCard className='inline-block' src={image} title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
+            <TeamCard className='inline-block' src={image} title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
+            <TeamCard className='inline-block' src={image} title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
+            <TeamCard className='inline-block' src={image} title='Shri. Rajesh Kumar' year='Class of 1986-1990' position='President'></TeamCard>
           </div>
         </div>
         <Footer></Footer>
