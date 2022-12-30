@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
       <Header></Header>
-      <div className="w-11/12 mx-auto my-[7.5rem] ">
+      <div className="w-11/12 mx-auto my-[5.3rem] ">
         <Carousel className="h-[30rem]">
           <Carousel.Item className="h-[30rem]">
             <img
