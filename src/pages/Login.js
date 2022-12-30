@@ -35,13 +35,13 @@ function Login() {
           <h1 className="text-3xl text-black font-semibold">Sign In</h1>
           <div className="flex w-4/5 flex-col gap-2">
             <div className="flex flex-col gap-1">
-              <h1 className="text-black text-base font-semibold">UserName :</h1>
+              <h1 className="text-black text-base font-semibold">Email :</h1>
               <input
                 className=" rounded-lg py-2 px-2 outline-none font-mono"
-                type="text"
+                type="email"
                 autoComplete="off"
-                placeholder="username"
-                name="username"
+                placeholder="email"
+                name="email"
                 onChange={handleUsername}
               />  
             </div>
