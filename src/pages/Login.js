@@ -5,6 +5,7 @@ import Signup from "./Signup";
 
 function Login() {
   const navigate = useNavigate();
+<<<<<<< HEAD
   const [values, setValues] = useState("");
 
   const handleUsername = (e) => {
@@ -14,6 +15,24 @@ function Login() {
     setValues({... , password: e.target.value});
   }
   
+=======
+
+  const [login, setLogin] = useState({
+    username: "",
+    password: "",
+  });
+
+  const inputEvent = (e) => {
+    const { name, value } = e.target;
+    setLogin((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+
+>>>>>>> 8bcb8d2d1bb4cdee30c1576d5b7dcb34ca79f446
   return (
     <>
       {/* <Header></Header> */}
@@ -25,10 +44,19 @@ function Login() {
               <h1 className="text-[#0b0b0d] text-base">UserName :</h1>
               <input
                 className="rounded-lg py-1 px-2 outline-none"
+<<<<<<< HEAD
                 placeholder="username"
                 autoComplete="off"
                 type="text"
                 name="username"
+=======
+                placeholder="enter you username"
+                autoComplete="off"
+                type="text"
+                name="username"
+                value={login.username}
+                onChange={inputEvent}
+>>>>>>> 8bcb8d2d1bb4cdee30c1576d5b7dcb34ca79f446
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -37,8 +65,15 @@ function Login() {
                 className=" rounded-lg py-1 px-2 outline-none"
                 type="password"
                 autoComplete="off"
+<<<<<<< HEAD
                 placeholder="password"
                 name="password"
+=======
+                placeholder=""
+                name="password"
+                value={login.password}
+                onChange={inputEvent}
+>>>>>>> 8bcb8d2d1bb4cdee30c1576d5b7dcb34ca79f446
               />
             </div>
             <button className="mt-4 text-[#fff] rounded-lg py-2 bg-[#4e299e]">
