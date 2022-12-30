@@ -25,16 +25,16 @@ function Header() {
       <section className='flex-2 justify-center self-center'>
         <ul className='flex justify-center self-center gap-5' id="navbar">
           <li className="transition duration-200 hover:scale-125 ">
-            <StyledNavLink exact className="text-3xl font-semibold" to="/">HOME</StyledNavLink>
+            <StyledNavLink exact className="text-2xl font-semibold" to="/">HOME</StyledNavLink>
           </li>
           <li className="transition duration-200 hover:scale-125">
-            <StyledNavLink exact className="text-3xl font-semibold" to="/about">ABOUT</StyledNavLink>
+            <StyledNavLink exact className="text-2xl font-semibold" to="/about">ABOUT</StyledNavLink>
           </li>
           <li className="transition duration-200 hover:scale-125">
-            <StyledNavLink exact className="text-3xl font-semibold" to="/join">JOIN</StyledNavLink>
+            <StyledNavLink exact className="text-2xl font-semibold" to="/join">JOIN</StyledNavLink>
           </li>
           <li className="transition duration-200 hover:scale-125">
-            <StyledNavLink exact className="text-3xl font-semibold" to="/jobs">JOBS</StyledNavLink>
+            <StyledNavLink exact className="text-2xl font-semibold" to="/jobs">JOBS</StyledNavLink>
           </li>
         </ul>
       </section>
