@@ -8,7 +8,7 @@ import styled from 'styled-components';
 function Header() {
   
   return (
-    <div className=' justify-center self-center sticky top-0 z-50'>
+    <div className=' justify-center self-center sticky top-0 z-50 w-full bg-bgoffwhite'>
       {(window.location.pathname === "/login") ? (<></>) : (<div className='flex justify-end p-2 bg-blueaccent '>
        <Link to="/login"><button type="button" class="font-semibold text-white bg-blue-600 py-1 px-3 rounded-full mx-3 transition duration-150 hover:scale-110">Login</button></Link>
       </div>)}
