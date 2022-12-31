@@ -4,13 +4,28 @@ import { NavLink, Link } from "react-router-dom";
 import "../style/Navbar.css";
 import JNU from "../images/JNUlogopng.png";
 import styled from 'styled-components';
-
+import { useUserAuth } from "../reactHooks/UseAuthContext";
+import { useNavigate } from "react-router-dom";
 function Header() {
-  
+  const {userdata,logOut} = useUserAuth();
+  const navigate = useNavigate();
+
+  const handleLogOut = async()=>{
+    try{
+      await logOut();
+      navigate("/");
+
+    }catch(err){
+      alert(err.message)
+    }
+   
+
+  }
   return (
     <div className=' justify-center self-center sticky top-0 z-50'>
       {(window.location.pathname === "/login") ? (<></>) : (<div className='flex justify-end p-2 bg-blueaccent '>
-       <Link to="/login"><button type="button" class="font-semibold text-white bg-blue-600 py-1 px-3 rounded-full mx-3 transition duration-150 hover:scale-110">Login</button></Link>
+       {!userdata && <Link to="/login"><button type="button" class="font-semibold text-white bg-blue-600 py-1 px-3 rounded-full mx-3 transition duration-150 hover:scale-110">Login</button></Link>}
+       {userdata && <> <h6>{userdata.email}</h6><button type="button" class="font-semibold text-white bg-blue-600 py-1 px-3 rounded-full mx-3 transition duration-150 hover:scale-110" onClick={handleLogOut}>Logout</button></>}
       </div>)}
       <div className='bg-neutral-100 flex justify-center self-center w-11/12 mx-auto border-black border-b-2 py-2 '>
       <section className='flex-1 justify-center '>

@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { useUserAuth } from "../reactHooks/UseAuthContext";
+
+
 function Signup() {
+  // const {userdata, logIn, SignUp }= useUserAuth()
+  const {SignUp }= useUserAuth()
   const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
     email:"",
     password: "",
   });
+  const [err,seterr] = useState("");
 
   const inputEvent = (e) => {
     const { name, value } = e.target;
@@ -17,6 +23,30 @@ function Signup() {
         [name]: value,
       };
     });
+  };
+
+  const handleSubmission = async(e)=>{
+    e.preventDefault();
+    if(!data.email || !data.password || !data.name){
+      alert("invalid details");
+      return;
+    }
+    let result = data.email.slice(-10, -1)+"m";
+    if(result === "@gmail.com"){
+      
+      
+      try{
+          await SignUp(data.email,data.password)
+          navigate("/");
+      }catch(err){
+        seterr(err.message);
+        alert(err);
+      }
+
+
+    }else{
+      alert("invalid email");
+    };
   };
   return (
     <>
@@ -57,7 +87,7 @@ function Signup() {
                 onChange={inputEvent}
               />
             </div>
-            <button className="mt-4 text-[#ddeddd] rounded-lg py-2 bg-[#0b781d]">
+            <button className="mt-4 text-[#ddeddd] rounded-lg py-2 bg-[#0b781d]" onClick={handleSubmission}>
               Sign Up
             </button>
             <button

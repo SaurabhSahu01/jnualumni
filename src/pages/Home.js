@@ -2,8 +2,11 @@ import React from 'react'
 import Header from "../components/Header";
 import Carousel from 'react-bootstrap/Carousel';
 import Cards from "../components/Cards";
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
+
+
 function Home() {
+  
   return (
     <>
       <Header></Header>
