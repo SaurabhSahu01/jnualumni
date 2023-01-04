@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-
+import GoogleButton from "react-google-button";
+import FacebookButton from "../components/FacebookButton";
+import TwitterButton from "../components/TwitterButton";
 
 
 function Login() {
@@ -62,6 +64,10 @@ function Login() {
             <button className="mt-4 text-white rounded-lg py-2 bg-[#4e299e] font-semibold transition duration-150 hover:scale-105" onClick={handleClick}>
               Sign In
             </button>
+            <span className="mx-auto  font-semibold">OR</span>
+            <GoogleButton className="mx-auto m-2"/>
+            <FacebookButton></FacebookButton>
+            <TwitterButton></TwitterButton>
             <span className="text-center my-3 cursor-default">
               Don't have an account? <button
               className=" text-blue-600 cursor-pointer"
