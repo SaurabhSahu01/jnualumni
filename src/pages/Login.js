@@ -32,7 +32,7 @@ function Login() {
   return (
     <>
       {/* <Header></Header> */}
-      <div className="w-full h-[86vh] grid place-items-center ">
+      <div className="w-full h-[100vh] grid place-items-center ">
         <div className="w-1/3 rounded-2xl py-8 bg-[#d2d2d4] flex flex-col justify-center items-center gap-4">
           <h1 className="text-3xl text-black font-semibold">Sign In</h1>
           <div className="flex w-4/5 flex-col gap-2">
