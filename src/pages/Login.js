@@ -79,7 +79,7 @@ function Login() {
               Loading...
             </button>) : ((values.username !== "" && values.password !== "") ? (<button className="mt-4 text-white rounded-lg py-2 bg-[#4e299e] font-semibold transition duration-150 hover:scale-105" onClick={handleClick}>
               Sign In
-            </button>) : (<button className="mt-4 text-white rounded-lg py-2 bg-[#4e299e6e] font-semibold">
+            </button>) : (<button className="mt-4 text-white rounded-lg py-2 bg-[#4e299e6e] font-semibold" disabled>
               Sign In
             </button>))}
             <span className="mx-auto  font-semibold">OR</span>
