@@ -82,7 +82,7 @@ function Login() {
             </button>) : (<button className="mt-4 text-white rounded-lg py-2 bg-[#4e299e6e] font-semibold cursor-not-allowed" disabled>
               Sign In
             </button>))}
-            <span className="mx-auto  font-semibold cursor-none">OR</span>
+            <span className="mx-auto  font-semibold cursor-default">OR</span>
             <GoogleButton className="mx-auto m-2" onClick={()=>{
                 loginwithgoogle()
                 .then((result) => {
