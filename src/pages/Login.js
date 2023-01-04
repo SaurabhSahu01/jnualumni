@@ -5,9 +5,11 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import GoogleButton from "react-google-button";
 import FacebookButton from "../components/FacebookButton";
 import TwitterButton from "../components/TwitterButton";
+import { useUserAuthContext } from "../context/UserContext";
 
 
 function Login() {
+  const { logInProgress, setlogInProgress, userData, loginwithemail } = useUserAuthContext();
   const navigate = useNavigate();
   const [values, setValues] = useState({
     username: "",
@@ -16,19 +18,29 @@ function Login() {
   });
 
   const handleUsername = (e) => {
-    setValues({...values, username: e.target.value})
-  } 
+    setValues({ ...values, username: e.target.value })
+  }
   const handlePassword = (e) => {
     e.target.value = e.target.value.replaceAll(" ", "");
-    setValues({...values , password: e.target.value.replaceAll(" ","")});
+    setValues({ ...values, password: e.target.value.replaceAll(" ", "") });
   }
   const handleShowPassword = (e) => {
-    setValues({...values, showPassword: !values.showPassword})
+    setValues({ ...values, showPassword: !values.showPassword })
   }
-  const handleClick = (e) => {
-    console.log(values.username, values.password);
+  const handleClick = async (e) => {
+    e.preventDefault();
+    setlogInProgress(true);
+    await loginwithemail(values.username, values.password)
+      .then(() => {
+        setlogInProgress(false);
+        navigate("/");
+      })
+      .catch((err) => {
+        setlogInProgress(false);
+        console.log(err);
+      })
   }
-  
+
   return (
     <>
       {/* <Header></Header> */}
@@ -45,10 +57,10 @@ function Login() {
                 placeholder="email"
                 name="email"
                 onChange={handleUsername}
-              />  
+              />
             </div>
             <div className="flex flex-col gap-1">
-              <h1 className="text-black text-base font-semibold">Password :</h1>  
+              <h1 className="text-black text-base font-semibold">Password :</h1>
               <div className="rounded-lg py-2 outline-none bg-white flex justify-end">
                 <input
                   className="outline-none px-2 w-full font-mono"
@@ -58,25 +70,28 @@ function Login() {
                   name="password"
                   onChange={handlePassword}
                 />
-                {values.showPassword ? (<VisibilityIcon className="mx-2" onClick={handleShowPassword}></VisibilityIcon>  ) : (<VisibilityOffIcon onClick={handleShowPassword} className="mx-2"></VisibilityOffIcon>)} 
+                {values.showPassword ? (<VisibilityIcon className="mx-2" onClick={handleShowPassword}></VisibilityIcon>) : (<VisibilityOffIcon onClick={handleShowPassword} className="mx-2"></VisibilityOffIcon>)}
               </div>
             </div>
-            <button className="mt-4 text-white rounded-lg py-2 bg-[#4e299e] font-semibold transition duration-150 hover:scale-105" onClick={handleClick}>
+            {logInProgress ? (<button className="mt-4 text-white rounded-lg py-2 bg-[#4e299e] font-semibold" disabled>
+              <span className="spinner-border spinner-border-sm mx-2" role="status" aria-hidden="true"></span>
+              Loading...
+            </button>) : (<button className="mt-4 text-white rounded-lg py-2 bg-[#4e299e] font-semibold transition duration-150 hover:scale-105" onClick={handleClick}>
               Sign In
-            </button>
+            </button>)}
             <span className="mx-auto  font-semibold">OR</span>
-            <GoogleButton className="mx-auto m-2"/>
+            <GoogleButton className="mx-auto m-2" />
             <FacebookButton></FacebookButton>
             <TwitterButton></TwitterButton>
             <span className="text-center my-3 cursor-default">
               Don't have an account? <button
-              className=" text-blue-600 cursor-pointer"
-              onClick={() => navigate("/signup")}
-            >
-            sign up now
-            </button>
+                className=" text-blue-600 cursor-pointer"
+                onClick={() => navigate("/signup")}
+              >
+                sign up now
+              </button>
             </span>
-            
+
           </div>
         </div>
       </div>
