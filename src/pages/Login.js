@@ -6,10 +6,11 @@ import GoogleButton from "react-google-button";
 import FacebookButton from "../components/FacebookButton";
 import TwitterButton from "../components/TwitterButton";
 import { useUserAuthContext } from "../context/UserContext";
+import {GoogleAuthProvider} from "firebase/auth";
 
 
 function Login() {
-  const { logInProgress, setlogInProgress, userData, loginwithemail } = useUserAuthContext();
+  const { logInProgress, setlogInProgress, loginwithemail, loginwithgoogle } = useUserAuthContext();
   const navigate = useNavigate();
   const [values, setValues] = useState({
     username: "",
@@ -82,7 +83,28 @@ function Login() {
               Sign In
             </button>))}
             <span className="mx-auto  font-semibold">OR</span>
-            <GoogleButton className="mx-auto m-2" />
+            <GoogleButton className="mx-auto m-2" onClick={()=>{
+                loginwithgoogle()
+                .then((result) => {
+                  // This gives you a Google Access Token. You can use it to access the Google API.
+                  const credential = GoogleAuthProvider.credentialFromResult(result);
+                  const token = credential.accessToken;
+                  // The signed-in user info.
+                  const user = result.user;
+                  navigate("/");
+                  // ...
+                }).catch((error) => {
+                  // Handle Errors here.
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  // The email of the user's account used.
+                  const email = error.customData.email;
+                  // The AuthCredential type that was used.
+                  const credential = GoogleAuthProvider.credentialFromError(error);
+                  // ...
+                });
+
+            }}/>
             <FacebookButton></FacebookButton>
             <TwitterButton></TwitterButton>
             <span className="text-center my-3 cursor-default">
