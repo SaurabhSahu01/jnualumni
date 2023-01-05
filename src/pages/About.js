@@ -6,7 +6,6 @@ import image from '../images/TeamCard.jpg'
 function About() {
   return (
     <>
-        <div className="w-full">
         <Header></Header>
         <div className='rounded bg-white w-11/12 mx-auto my-10 self-center p-6'>
           <h1 className='text-3xl'>About AAJ</h1>
@@ -39,7 +38,6 @@ function About() {
            alumni community and the university. In this spirit, AAJ exhorts the alumni to acquire Life 
            Membership of AAJ. Information about the same and the relevant process for acquiring membership 
            have been provided in the website of AAJ.</p>
-        </div>
         </div>
         <div>
           <h1 className='text-center text-4xl'>Executive committee</h1>
