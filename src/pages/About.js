@@ -10,9 +10,7 @@ function About() {
   setcurrentPage(window.location.pathname);
   return (
     <>
-        <div className="w-full">
         {(userData) ? (<HeaderLogin></HeaderLogin>) : (<Header></Header>)}
-        
         <div className='rounded bg-white w-11/12 mx-auto my-10 self-center p-6'>
           <h1 className='text-3xl'>About AAJ</h1>
           <p>Our JNU days are the common thread that binds us and being alumni of JNU is a natural 
@@ -44,7 +42,6 @@ function About() {
            alumni community and the university. In this spirit, AAJ exhorts the alumni to acquire Life 
            Membership of AAJ. Information about the same and the relevant process for acquiring membership 
            have been provided in the website of AAJ.</p>
-        </div>
         </div>
         <div>
           <h1 className='text-center text-4xl'>Executive committee</h1>
