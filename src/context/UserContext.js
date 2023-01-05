@@ -15,7 +15,9 @@ export const UserContextProvider = ({ children }) => {
     }
 
     const logout = () => {
-        signOut(auth);
+        setTimeout(() => {
+            signOut(auth);    
+        }, 2000);
     }
 
     const loginwithgoogle = () => {
