@@ -4,7 +4,8 @@ import Footer from '../components/Footer'
 import { useUserAuthContext } from '../context/UserContext';
 import HeaderLogin from '../components/HeaderLogin';
 function Join() {
-  const {userData} = useUserAuthContext();
+  const {userData, setcurrentPage} = useUserAuthContext();
+  setcurrentPage(window.location.pathname);
   return (
     <>
         {(userData) ? (<HeaderLogin></HeaderLogin>) : (<Header></Header>)}

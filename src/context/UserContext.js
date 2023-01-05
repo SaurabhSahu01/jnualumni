@@ -9,6 +9,7 @@ const provider = new GoogleAuthProvider();
 export const UserContextProvider = ({ children }) => {
     const [userData, setuserData] = useState();
     const [logInProgress, setlogInProgress] = useState(false);
+    const [currentPage, setcurrentPage] = useState()
 
     const loginwithemail = (email, pass) => {
         return signInWithEmailAndPassword(auth, email, pass);
@@ -35,7 +36,7 @@ export const UserContextProvider = ({ children }) => {
         return unsubscribe;
     }, [])
 
-    return <userContext.Provider value={{ logInProgress, setlogInProgress, userData, loginwithemail, logout, loginwithgoogle }}>{children}</userContext.Provider>
+    return <userContext.Provider value={{ logInProgress, setlogInProgress, userData, loginwithemail, logout, loginwithgoogle, currentPage, setcurrentPage }}>{children}</userContext.Provider>
 }
 
 export const useUserAuthContext = () => useContext(userContext);

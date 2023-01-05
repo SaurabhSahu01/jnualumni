@@ -15,7 +15,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 function HeaderLogin() {
     const navigate = useNavigate();
-    const { userData, logout } = useUserAuthContext();
+    const { userData, logout, currentPage } = useUserAuthContext();
     return (
         <div className='bg-bgoffwhite flex justify-center self-center w-11/12 mx-auto border-black border-b-2 py-2 sticky top-0 z-50'>
             <section className='flex-4 justify-center mx-2'>
@@ -28,10 +28,14 @@ function HeaderLogin() {
             </section>
             <section className='flex-4 justify-center self-center mx-auto'>
                 <ul className='grid grid-cols-6 justify-center self-center' id="navbar">
-                    <li className="flex flex-col cursor-pointer" onClick={() => { navigate("/") }}>
+                    {(currentPage === "/") ? (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/") }}>
+                        <HomeIcon className='mx-auto' style={{ color: "black" }}></HomeIcon>
+                        <p className="text-[12px] my-0 text-center text-[black] font-medium">Home</p>
+                    </li>) : (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/") }}>
                         <HomeIcon className='mx-auto' style={{ color: "#696969" }}></HomeIcon>
                         <p className="text-[12px] my-0 text-center text-[#696969] font-medium">Home</p>
-                    </li>
+                    </li>)}
+
                     <li className="flex flex-col cursor-pointer">
                         <NewspaperIcon className='mx-auto' style={{ color: "#696969" }}></NewspaperIcon>
                         <p className="text-[12px] my-0 text-center text-[#696969] font-medium">Feeds</p>
@@ -40,18 +44,31 @@ function HeaderLogin() {
                         <ForumIcon className='mx-auto' style={{ color: "#696969" }}></ForumIcon>
                         <p className="text-[12px] my-0 text-center text-[#696969] font-medium">Messaging</p>
                     </li>
-                    <li className="flex flex-col cursor-pointer" onClick={() => { navigate("/jobs") }}>
+
+                    {(currentPage === "/jobs") ? (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/jobs") }}>
+                        <WorkIcon className='mx-auto' style={{ color: "black" }}></WorkIcon>
+                        <p className="text-[12px] my-0 text-center text-[black] font-medium">Jobs</p>
+                    </li>) : (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/jobs") }}>
                         <WorkIcon className='mx-auto' style={{ color: "#696969" }}></WorkIcon>
                         <p className="text-[12px] my-0 text-center text-[#696969] font-medium">Jobs</p>
-                    </li>
-                    <li className="flex flex-col cursor-pointer" onClick={() => { navigate("/join") }}>
+                    </li>)}
+
+                    {(currentPage === "/join") ? (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/join") }}>
+                        <LoyaltyIcon className='mx-auto' style={{ color: "black" }}></LoyaltyIcon>
+                        <p className="text-[12px] my-0 text-center text-[black] font-medium">Membership</p>
+                    </li>) : (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/join") }}>
                         <LoyaltyIcon className='mx-auto' style={{ color: "#696969" }}></LoyaltyIcon>
                         <p className="text-[12px] my-0 text-center text-[#696969] font-medium">Membership</p>
-                    </li>
-                    <li className="flex flex-col cursor-pointer" onClick={() => { navigate("/about") }}>
+                    </li>)}
+
+                    {(currentPage === "/about") ? (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/about") }}>
+                        <InfoIcon className='mx-auto' style={{ color: "black" }}></InfoIcon>
+                        <p className="text-[12px] my-0 text-center text-[black] font-medium">About</p>
+                    </li>) : (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/about") }}>
                         <InfoIcon className='mx-auto' style={{ color: "#696969" }}></InfoIcon>
                         <p className="text-[12px] my-0 text-center text-[#696969] font-medium">About</p>
-                    </li>
+                    </li>)}
+
                 </ul>
             </section>
             <Dropdown className="outline-none">

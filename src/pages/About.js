@@ -6,7 +6,8 @@ import image from '../images/TeamCard.jpg'
 import { useUserAuthContext } from '../context/UserContext';
 import HeaderLogin from '../components/HeaderLogin';
 function About() {
-  const {userData} = useUserAuthContext();
+  const {userData, setcurrentPage} = useUserAuthContext();
+  setcurrentPage(window.location.pathname);
   return (
     <>
         <div className="w-full">

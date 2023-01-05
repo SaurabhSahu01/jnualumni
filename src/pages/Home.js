@@ -12,7 +12,8 @@ import Abhijeet from '../images/AbhijeetBanerjee.webp'
 import { useUserAuthContext } from '../context/UserContext';
 import HeaderLogin from '../components/HeaderLogin';
 function Home() {
-  const {userData} = useUserAuthContext();
+  const {userData, setcurrentPage} = useUserAuthContext();
+  setcurrentPage(window.location.pathname);
   return (
     <>
       {(userData) ? (<HeaderLogin></HeaderLogin>) : (<Header></Header>)}
