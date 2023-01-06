@@ -4,14 +4,10 @@ import { NavLink, Link } from "react-router-dom";
 import "../style/Navbar.css";
 import JNU from "../images/JNUlogopng.png";
 import styled from 'styled-components';
-import { useUserAuthContext } from '../context/UserContext';
 function Header() {
-  const {userData, logout} = useUserAuthContext();
   return (
     <div className=' justify-center self-center sticky top-0 z-50 w-full bg-bgoffwhite'>
-      {(userData) ? (<div className='flex justify-end p-2 bg-blueaccent '>
-        <button type="button" class="font-semibold text-white bg-blue-600 py-1 px-3 rounded-full mx-3 transition duration-150 hover:scale-110" onClick={logout}>Logout</button>
-      </div>) :((window.location.pathname === "/login") ? (<></>) : (<div className='flex justify-end p-2 bg-blueaccent '>
+      {((window.location.pathname === "/login") ? (<></>) : (<div className='flex justify-end p-2 bg-blueaccent '>
         <Link to="/login"><button type="button" class="font-semibold text-white bg-blue-600 py-1 px-3 rounded-full mx-3 transition duration-150 hover:scale-110">Login</button></Link>
       </div>))}
       <div className='bg-bgoffwhite flex justify-center self-center w-11/12 mx-auto border-black border-b-2 py-2 '>
@@ -24,7 +20,7 @@ function Header() {
             </div>
           </div>
         </section>
-        <section className='flex-2 justify-center self-center'>
+        <section className='flex-3 justify-center self-center'>
           <ul className='flex justify-center self-center gap-5' id="navbar">
             <li className="transition duration-200 hover:scale-125 ">
               <StyledNavLink exact className="text-2xl font-semibold" to="/">HOME</StyledNavLink>

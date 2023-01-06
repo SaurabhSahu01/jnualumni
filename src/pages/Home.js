@@ -9,10 +9,14 @@ import Car3 from '../images/Carousel3.webp'
 import Nirmala from '../images/NirmalaSitaraman.webp'
 import Jaishankar from '../images/Jaishankar.webp'
 import Abhijeet from '../images/AbhijeetBanerjee.webp'
+import { useUserAuthContext } from '../context/UserContext';
+import HeaderLogin from '../components/HeaderLogin';
 function Home() {
+  const {userData, setcurrentPage} = useUserAuthContext();
+  setcurrentPage(window.location.pathname);
   return (
     <>
-      <Header></Header>
+      {(userData) ? (<HeaderLogin></HeaderLogin>) : (<Header></Header>)}
       <div className="w-11/12 mx-auto my-[5.3rem] ">
         <Carousel className="h-[30rem]">
           <Carousel.Item className="h-[30rem]">

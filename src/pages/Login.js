@@ -8,8 +8,9 @@ import TwitterButton from "../components/TwitterButton";
 import { useUserAuthContext } from "../context/UserContext";
 import {GoogleAuthProvider} from "firebase/auth";
 
-
 function Login() {
+  const [loginerr, setloginerr] = useState(false);
+  const [mailerr, setmailerr] = useState(false);
   const { logInProgress, setlogInProgress, loginwithemail, loginwithgoogle } = useUserAuthContext();
   const navigate = useNavigate();
   const [values, setValues] = useState({
@@ -18,10 +19,26 @@ function Login() {
     showPassword: false
   });
 
+  const validateEmail = (email) => {
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(email.match(mailformat)){
+      return true;
+    }
+    else return false;
+
+  }
   const handleUsername = (e) => {
-    setValues({ ...values, username: e.target.value })
+    setloginerr(false);
+    if(validateEmail(e.target.value)){
+      setmailerr(false);
+      setValues({ ...values, username: e.target.value })
+    }
+    else{
+      setmailerr(true);
+    }
   }
   const handlePassword = (e) => {
+    setloginerr(false);
     e.target.value = e.target.value.replaceAll(" ", "");
     setValues({ ...values, password: e.target.value.replaceAll(" ", "") });
   }
@@ -38,7 +55,7 @@ function Login() {
       })
       .catch((err) => {
         setlogInProgress(false);
-        console.log(err);
+        setloginerr(true);
       })
   }
 
@@ -46,7 +63,7 @@ function Login() {
     <>
       {/* <Header></Header> */}
       <div className="w-full h-[100vh] grid place-items-center ">
-        <div className="w-1/3 rounded-2xl py-8 bg-[#d2d2d4] flex flex-col justify-center items-center gap-4">
+        <div className="w-1/3 rounded-2xl py-8 bg-[#89c1fd8e] flex flex-col justify-center items-center gap-4">
           <h1 className="text-3xl text-black font-semibold">Sign In</h1>
           <div className="flex w-4/5 flex-col gap-2">
             <div className="flex flex-col gap-1">
@@ -74,10 +91,12 @@ function Login() {
                 {values.showPassword ? (<VisibilityIcon className="mx-2" onClick={handleShowPassword}></VisibilityIcon>) : (<VisibilityOffIcon onClick={handleShowPassword} className="mx-2"></VisibilityOffIcon>)}
               </div>
             </div>
+            {mailerr ? (<span className="text-red-500">Invalid email!</span>) : (<></>)}
+            {loginerr ? (<span className="text-red-500">Incorrect email or password!</span>) : (<></>)}
             {logInProgress ? (<button className="mt-4 text-white rounded-lg py-2 bg-[#4e299e] font-semibold" disabled>
               <span className="spinner-border spinner-border-sm mx-2" role="status" aria-hidden="true"></span>
               Loading...
-            </button>) : ((values.username !== "" && values.password !== "") ? (<button className="mt-4 text-white rounded-lg py-2 bg-[#4e299e] font-semibold transition duration-150 hover:scale-105" onClick={handleClick}>
+            </button>) : ((!mailerr && values.username !== "" && values.password !== "") ? (<button type="submit" className="mt-4 text-white rounded-lg py-2 bg-[#4e299e] font-semibold transition duration-150 hover:scale-105" onClick={handleClick}>
               Sign In
             </button>) : (<button className="mt-4 text-white rounded-lg py-2 bg-[#4e299e6e] font-semibold cursor-not-allowed" disabled>
               Sign In
