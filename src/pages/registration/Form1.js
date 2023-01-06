@@ -8,18 +8,18 @@ export const schools = ["School of Arts & Aesthetics", "School of Biotechnology"
     "Special Centre for National Security Studies", "Special Centre for Systems Medicine", "Special Centre for the Study of North East India"]
 export const Form1 = (props) => {
     return (
-            <form className='h-full w-full grid grid-rows-6 place-items-center'>
-                <span className="row-span-2 text-2xl font-semibold">Jawaharlal Nehru University</span>
-                <div className='row-span-2 flex flex-col gap-1'>
-                    <span className='text-sm text-blue-500'>School/Centre*</span>
-                <select name="School" className='outline-none p-2 rounded-md'>
+        <form className='h-full w-full grid grid-rows-6 place-items-center'>
+            <span className="row-span-1 text-2xl font-semibold">Jawaharlal Nehru University</span>
+            <div className='row-span-4 flex flex-col gap-1'>
+                <span className='text-sm text-blue-500'>School/Centre*</span>
+                <select name="School" className='outline-none p-2 bg-[transparent] border-black border-b-[1px]'>
                     <option className='font-semibold'>School/Centre</option>
                     {schools.map((option, index) => {
                         return <option key={index}>{option}</option>
                     })}
-                </select>   
-                </div>
-                <button type="submit" className="px-3 py-2 text-white rounded-lg bg-[#4e299e] font-semibold transition duration-150 hover:scale-105 row-span-1">Next</button>
-            </form>
+                </select>
+            </div>
+            <button type="submit" className="px-3 py-2 text-white rounded-lg bg-[#4e299e] font-semibold transition duration-150 hover:scale-105 row-span-1">Next</button>
+        </form>
     )
 }
