@@ -11,6 +11,9 @@ import Jaishankar from '../images/Jaishankar.webp'
 import Abhijeet from '../images/AbhijeetBanerjee.webp'
 import { useUserAuthContext } from '../context/UserContext';
 import HeaderLogin from '../components/HeaderLogin';
+import Platform from '../components/HomePageComponents/Platform'
+import HomeExtras from '../components/HomePageComponents/HomeExtras'
+import ExtraTabs from '../components/HomePageComponents/ExtraTabs'
 function Home() {
   const {userData, setcurrentPage} = useUserAuthContext();
   setcurrentPage(window.location.pathname);
@@ -61,6 +64,9 @@ function Home() {
           <Cards src={Abhijeet} title="Prof Abhijit Vinayak Banerjee" desc="Nobel Laureate in Economics (2019)"></Cards>
         </div>
       </div>
+      <Platform />
+      <HomeExtras />
+      <ExtraTabs />
       <Footer></Footer>
     </>
   )
