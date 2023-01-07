@@ -1,16 +1,15 @@
 import React from 'react'
-import Header from "../components/Header";
 import Footer from '../components/Footer'
 import TeamCard from '../components/TeamCard'
 import image from '../images/TeamCard.jpg' 
 import { useUserAuthContext } from '../context/UserContext';
-import HeaderLogin from '../components/HeaderLogin';
+import FinalHeader from '../components/FinalHeader';
 function About() {
-  const {userData, setcurrentPage} = useUserAuthContext();
+  const {setcurrentPage} = useUserAuthContext();
   setcurrentPage(window.location.pathname);
   return (
     <>
-        {(userData) ? (<HeaderLogin></HeaderLogin>) : (<Header></Header>)}
+        <FinalHeader></FinalHeader>
         <div className='rounded bg-white w-11/12 mx-auto my-10 self-center p-6'>
           <h1 className='text-3xl'>About AAJ</h1>
           <p>Our JNU days are the common thread that binds us and being alumni of JNU is a natural 

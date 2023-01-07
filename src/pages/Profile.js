@@ -6,6 +6,7 @@ import {db} from "../firebase/firebase"
 import {doc, setDoc} from "firebase/firestore"
 import { useUserAuthContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
+import FinalHeader from '../components/FinalHeader'
 
 function Profile() {
     const navigate = useNavigate();
@@ -34,6 +35,7 @@ function Profile() {
     }
     return (
         <>
+            <FinalHeader></FinalHeader>
             <div className='rounded w-11/12 mx-auto my-10 self-center bg-white grid grid-rows-5 place-items-center'>
                 <div className='w-11/12 my-5 row-span-3 grid grid-cols-3 place-items-center'>
                     <div className='col-span-1'>

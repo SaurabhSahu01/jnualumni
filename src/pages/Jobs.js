@@ -1,14 +1,13 @@
 import React from 'react'
-import Header from "../components/Header"
 import Footer from '../components/Footer'
 import { useUserAuthContext } from '../context/UserContext';
-import HeaderLogin from '../components/HeaderLogin';
+import FinalHeader from '../components/FinalHeader';
 function Jobs() {
-  const {userData, setcurrentPage} = useUserAuthContext();
+  const {setcurrentPage} = useUserAuthContext();
   setcurrentPage(window.location.pathname);
   return (
     <>
-        {(userData) ? (<HeaderLogin></HeaderLogin>) : (<Header></Header>)}
+        <FinalHeader></FinalHeader>
         <Footer></Footer>
     </>
   )
