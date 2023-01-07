@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Footer from '../components/Footer'
 import TeamCard from '../components/TeamCard'
 import image from '../images/TeamCard.jpg' 
@@ -6,6 +6,10 @@ import { useUserAuthContext } from '../context/UserContext';
 import FinalHeader from '../components/FinalHeader';
 function About() {
   const {setcurrentPage} = useUserAuthContext();
+  useEffect(() => {
+    setcurrentPage(window.location.pathname)
+  }, [])
+  
   setcurrentPage(window.location.pathname);
   return (
     <>

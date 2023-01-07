@@ -4,11 +4,13 @@ import About from "./pages/About";
 import Join from "./pages/Join";
 import Jobs from "./pages/Jobs";
 import Login from "./pages/Login";
-import { Routes, Route } from "react-router-dom";
+import Profile from "./pages/Profile";
+import Feeds from "./pages/Feeds";
 import Signup from "./pages/Signup";
+import { Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from "./context/ProtectedRoute";
 import { UserContextProvider } from "./context/UserContext";
-import Profile from "./pages/Profile";
+
 function App() {
   return (
     <>
@@ -16,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" exact={true} element={<Home />}></Route>
         <Route path="/signup" exact={true} element={<Signup />}></Route>
+        <Route path="/feeds" exact={true} element={<ProtectedRoute><Feeds /></ProtectedRoute>}></Route> 
         <Route path="/join" exact={true} element={<ProtectedRoute><Join /></ProtectedRoute>}></Route>
         <Route path="/jobs" exact={true} element={<ProtectedRoute><Jobs /></ProtectedRoute>}></Route> 
         <Route path="/about" exact={true} element={<About />}></Route>
