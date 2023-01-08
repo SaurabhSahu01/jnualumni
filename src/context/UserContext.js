@@ -25,10 +25,6 @@ export const UserContextProvider = ({ children }) => {
         return signInWithPopup(auth, provider);
     }
 
-    const loginwithfacebook = () => {
-        
-    }
-
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
             setuserData(currentuser);

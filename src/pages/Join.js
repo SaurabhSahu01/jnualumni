@@ -1,14 +1,16 @@
-import React from 'react'
-import Header from "../components/Header"
+import React, {useEffect} from 'react'
 import Footer from '../components/Footer'
 import { useUserAuthContext } from '../context/UserContext';
-import HeaderLogin from '../components/HeaderLogin';
+import FinalHeader from '../components/FinalHeader';
 function Join() {
-  const {userData, setcurrentPage} = useUserAuthContext();
-  setcurrentPage(window.location.pathname);
+  const {setcurrentPage} = useUserAuthContext();
+  useEffect(() => {
+    setcurrentPage(window.location.pathname);
+  }, [])
+  
   return (
     <>
-        {(userData) ? (<HeaderLogin></HeaderLogin>) : (<Header></Header>)}
+        <FinalHeader></FinalHeader>
         <Footer></Footer>
     </>
   )
