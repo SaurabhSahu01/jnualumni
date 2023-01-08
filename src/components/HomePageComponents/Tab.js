@@ -2,10 +2,10 @@ import React from 'react'
 const Tab = (props) => {
     return ( 
         <div className='flex flex-col items-center'>
-            <div className='absolute z-50'>
-                <div className='h-20 z-50'>
+            <div className='absolute z-10'>
+                <div className='h-20 z-10'>
                     <div className='p-4 w-24 h-24 m-1 bg-blueaccent rounded-full'>
-                        <img src={props.src} alt='img' className=' z-50 h-12 w-12 m-auto  object-cover self-center '></img>
+                        <img src={props.src} alt='img' className=' z-10 h-12 w-12 m-auto  object-cover self-center '></img>
                     </div>
                 </div>
             </div>
