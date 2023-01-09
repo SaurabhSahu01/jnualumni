@@ -19,9 +19,9 @@ function Home() {
   useEffect(() => {
     setcurrentPage(window.location.pathname);
     if(userData === null){
-      console.log(userData)
       setwelcomeloading(true);
     }
+    console.log(userData)
 
     setTimeout(() => {
       setwelcomeloading(false);
