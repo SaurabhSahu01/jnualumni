@@ -1,6 +1,6 @@
 name: Firebase Deployment
 on:
-  pull:
+  push:
     branches:
       - master
 jobs:
