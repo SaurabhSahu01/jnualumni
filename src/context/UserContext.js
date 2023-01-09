@@ -39,7 +39,7 @@ export const UserContextProvider = ({ children }) => {
         return unsubscribe;
     }, [])
 
-    return <userContext.Provider value={{ logInProgress, setlogInProgress, userData, loginwithemail, logout, loginwithgoogle, currentPage, setcurrentPage }}>{children}</userContext.Provider>
+    return <userContext.Provider value={{ logInProgress, setlogInProgress, userData, loginwithemail, logout, loginwithgoogle, currentPage, setcurrentPage, signupwithemail }}>{children}</userContext.Provider>
 }
 
 export const useUserAuthContext = () => useContext(userContext);
