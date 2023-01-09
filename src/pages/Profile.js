@@ -7,11 +7,10 @@ import {doc, setDoc} from "firebase/firestore"
 import { useUserAuthContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
 import FinalHeader from '../components/FinalHeader'
-
 function Profile() {
     const navigate = useNavigate();
 
-    const [profileData, setprofileData] = useState({});
+    const [profileData, setprofileData] = useState({image: null,});
     const {userData} = useUserAuthContext();
     function displayImage(e){
         if(e.target.files){
@@ -40,7 +39,7 @@ function Profile() {
                 <div className='w-11/12 my-5 row-span-3 grid grid-cols-3 place-items-center'>
                     <div className='col-span-1'>
                         <div className='mx-auto' style={{position: "relative"}}>
-                            <label for="image">{(profileData.image !== null) ? (<img src={profileData.image} alt="user" className='rounded-full border-gray-400 border-[1px] h-48 w-48 object-contain'/>) : (<img src={userIcon} alt="user" className='rounded-full border-gray-400 border-[1px] h-48 w-48 object-contain'/>)}</label>
+                            <label for="image">{(profileData.image === null) ? (<img src={userIcon} alt="user" className='rounded-full border-gray-400 border-[1px] h-48 w-48 object-contain'/>) : (<img src={profileData.image} alt="user" className='rounded-full border-gray-400 border-[1px] h-48 w-48 object-contain'/>)}</label>
                             <input id="image" type="file" accept="image/*" style={{display: "none"}} onChange={displayImage}/>   
                         </div>
                     </div>
