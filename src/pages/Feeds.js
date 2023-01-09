@@ -8,9 +8,20 @@ import { useUserAuthContext } from '../context/UserContext';
 import "../style/Feeds.css"
 function Feeds() {
 const {setcurrentPage} = useUserAuthContext();
+
+// const showfeed = async () => {
+
+// }
+
 useEffect(() => {
   setcurrentPage(window.location.pathname);
 }, [])
+
+// useEffect(()=>{
+//   // fetch data from the database, on change display the feeds
+//   showfeed();
+// }, [])
+
   return (
     <>
         <FinalHeader></FinalHeader>
