@@ -10,7 +10,7 @@ import FinalHeader from '../components/FinalHeader'
 function Profile() {
     const navigate = useNavigate();
 
-    const [profileData, setprofileData] = useState({profileData: null,});
+    const [profileData, setprofileData] = useState({image: null,});
     const {userData} = useUserAuthContext();
     function displayImage(e){
         if(e.target.files){
