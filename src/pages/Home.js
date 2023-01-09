@@ -18,11 +18,12 @@ function Home() {
   const {setcurrentPage, setwelcomeloading, welcomeloading, userData} = useUserAuthContext();
   useEffect(() => {
     setcurrentPage(window.location.pathname);
-    if(userData === null){
+    if(userData !== null){
+      setwelcomeloading(false);
+    }
+    else{
       setwelcomeloading(true);
     }
-    console.log(userData)
-
     setTimeout(() => {
       setwelcomeloading(false);
     }, 2000);
