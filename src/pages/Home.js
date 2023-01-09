@@ -15,10 +15,12 @@ import ExtraTabs from '../components/HomePageComponents/ExtraTabs'
 import FinalHeader from '../components/FinalHeader';
 import WelcomLoader from '../components/Loader/WelcomLoader';
 function Home() {
-  const {setcurrentPage, setwelcomeloading, welcomeloading} = useUserAuthContext();
+  const {setcurrentPage, setwelcomeloading, welcomeloading, userData} = useUserAuthContext();
   useEffect(() => {
     setcurrentPage(window.location.pathname);
-    setwelcomeloading(true);
+    if(userData === null){
+      setwelcomeloading(true);
+    }
 
     setTimeout(() => {
       setwelcomeloading(false);
