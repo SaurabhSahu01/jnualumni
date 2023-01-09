@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {useUserAuthContext} from "../context/UserContext"
 
 function Signup() {
   const {loginwithemail, signupwithemail} = useUserAuthContext();
