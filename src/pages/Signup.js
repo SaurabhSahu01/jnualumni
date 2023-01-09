@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {useUserAuthContext} from "../context/UserContext"
 
 function Signup() {
+  const {loginwithemail, signupwithemail} = useUserAuthContext();
   const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
@@ -9,15 +11,40 @@ function Signup() {
     password: "",
   });
 
-  const inputEvent = (e) => {
-    const { name, value } = e.target;
-    setData((prev) => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
-  };
+  const validateEmail = (email) => {
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(email.match(mailformat)){
+      return true;
+    }
+    else return false;
+  }
+  const handleEmail = (e) => {
+    if(validateEmail(e.target.value)){
+      setData({...data, email: e.target.value})
+    }
+    else{
+      setData({...data, email: ""})
+    }
+  }
+  const handlePass = (e) => {
+    setData({...data, password: e.target.value});
+  }
+  const handleUsername = (e)=> {
+    setData({...data, name: e.target.value});
+  }
+  const signupHandler =  async (e) => {
+    e.preventDefault();
+    if(data.name !== "" && data.email !== "" && data.password !== ""){
+      await signupwithemail(data.email, data.password)
+      .then(async () => {
+         await loginwithemail(data.email, data.password)
+         .then(() => {
+            navigate("/");
+         })
+      })  
+    }
+  }
+
   return (
     <>
       <div className="w-full h-[86vh] grid place-items-center ">
@@ -31,8 +58,7 @@ function Signup() {
                 autoComplete="off"
                 type="text"
                 name="name"
-                value={data.name}
-                onChange={inputEvent}
+                onChange={handleUsername}
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -42,8 +68,7 @@ function Signup() {
                 type="email"
                 autoComplete="off"
                 name="email"
-                value={data.email}
-                onChange={inputEvent}
+                onChange={handleEmail}
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -53,11 +78,10 @@ function Signup() {
                 type="password"
                 autoComplete="off"
                 name="password"
-                value={data.password}
-                onChange={inputEvent}
+                onChange={handlePass}
               />
             </div>
-            <button className="mt-4 text-[#ddeddd] rounded-lg py-2 bg-[#0b781d]">
+            <button className="mt-4 text-[#ddeddd] rounded-lg py-2 bg-[#0b781d]" onClick={signupHandler}>
               Sign Up
             </button>
             <button
