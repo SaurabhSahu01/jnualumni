@@ -1,5 +1,4 @@
-import React from 'react'
-import Header from "../components/Header";
+import React, {useEffect} from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import Cards from "../components/Cards";
 import Footer from '../components/Footer'
@@ -14,12 +13,16 @@ import HeaderLogin from '../components/HeaderLogin';
 import Platform from '../components/HomePageComponents/Platform'
 import HomeExtras from '../components/HomePageComponents/HomeExtras'
 import ExtraTabs from '../components/HomePageComponents/ExtraTabs'
+import FinalHeader from '../components/FinalHeader';
 function Home() {
-  const {userData, setcurrentPage} = useUserAuthContext();
-  setcurrentPage(window.location.pathname);
+  const {setcurrentPage} = useUserAuthContext();
+  useEffect(() => {
+    setcurrentPage(window.location.pathname);
+  }, [])
+  
   return (
     <>
-      {(userData) ? (<HeaderLogin></HeaderLogin>) : (<Header></Header>)}
+      <FinalHeader></FinalHeader>
       <div className="w-11/12 mx-auto my-[5.3rem] ">
         <Carousel className="h-[30rem]">
           <Carousel.Item className="h-[30rem]">

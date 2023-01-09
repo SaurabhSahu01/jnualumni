@@ -36,10 +36,14 @@ function HeaderLogin() {
                         <p className="text-[12px] my-0 text-center text-[#696969] font-medium">Home</p>
                     </li>)}
 
-                    <li className="flex flex-col cursor-pointer">
+                    {(currentPage === "/feeds") ? (<li className="flex flex-col cursor-pointer" onClick={() => {navigate("/feeds")}}>
+                        <NewspaperIcon className='mx-auto' style={{ color: "black" }}></NewspaperIcon>
+                        <p className="text-[12px] my-0 text-center text-[black] font-medium">Feeds</p>
+                    </li>) : (<li className="flex flex-col cursor-pointer" onClick={() => navigate("/feeds")}>
                         <NewspaperIcon className='mx-auto' style={{ color: "#696969" }}></NewspaperIcon>
                         <p className="text-[12px] my-0 text-center text-[#696969] font-medium">Feeds</p>
-                    </li>
+                    </li>)}
+                    
                     <li className="flex flex-col cursor-pointer">
                         <ForumIcon className='mx-auto' style={{ color: "#696969" }}></ForumIcon>
                         <p className="text-[12px] my-0 text-center text-[#696969] font-medium">Messaging</p>
