@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { createContext, useState, useEffect } from "react";
-import { signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase/firebase';
 
 export const userContext = createContext();
@@ -13,6 +13,9 @@ export const UserContextProvider = ({ children }) => {
 
     const loginwithemail = (email, pass) => {
         return signInWithEmailAndPassword(auth, email, pass);
+    }
+    const signupwithemail = (email, pass) => {
+        return createUserWithEmailAndPassword(auth,email, pass);
     }
 
     const logout = () => {
