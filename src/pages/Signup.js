@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserAuthContext } from "../context/UserContext";
 function Signup() {
-  const {loginwithemail, signupwithemail, userData} = useUserAuthContext();
+  const {loginwithemail, signupwithemail} = useUserAuthContext();
   const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
