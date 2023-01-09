@@ -6,7 +6,7 @@ import PersUser from '../../icons/personalUser.png'
 import Location from '../../icons/location.png'
 const Platform = () => {
     return (
-        <div>
+        <div className="w-11/12 mx-auto">
             <span className='text-blueaccent flex justify-center self-center text-3xl font-semibold'>AAJ Alumni Platform</span>
             <div className='flex justify-center self-center my-5 gap-5'>
                 <PlatformCard src={User} desc="Explore complete Alumni directory & connect with Alumni with your interests & domain" title="Alumni Directory"></PlatformCard>

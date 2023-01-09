@@ -17,7 +17,7 @@ function HeaderLogin() {
     const navigate = useNavigate();
     const { userData, logout, currentPage } = useUserAuthContext();
     return (
-        <div className='bg-bgoffwhite flex justify-center self-center w-11/12 mx-auto border-black border-b-2 py-2 sticky top-0 z-50'>
+        <div className='bg-bgoffwhite flex justify-center self-center w-11/12 mx-auto border-black border-b-2 py-2 sticky top-0 z-[999]'>
             <section className='flex-4 justify-center mx-2'>
                 <div className="h-10 w-fit flex justify-between">
                     <img className="h-auto mr-3" src={JNU} alt="JNU_logo" />
