@@ -16,9 +16,13 @@ export const UserContextProvider = ({ children }) => {
     }
 
     const logout = () => {
-        setTimeout(() => {
-            signOut(auth);    
-        }, 2000);
+        setlogInProgress(true);
+        setTimeout(async () => {
+            await signOut(auth)
+            .then(()=>{
+                setlogInProgress(false);
+            })    
+        }, 1500);
     }
 
     const loginwithgoogle = () => {
