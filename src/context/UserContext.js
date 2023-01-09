@@ -2,20 +2,31 @@ import React, { useContext } from 'react'
 import { createContext, useState, useEffect } from "react";
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase/firebase';
+import { useNavigate } from 'react-router-dom';
 
 export const userContext = createContext();
 const provider = new GoogleAuthProvider();
-
 export const UserContextProvider = ({ children }) => {
+    const navigate = useNavigate();
     const [userData, setuserData] = useState();
     const [logInProgress, setlogInProgress] = useState(false);
     const [currentPage, setcurrentPage] = useState()
-
+    const [welcomeloading, setwelcomeloading] = useState(false);
     const loginwithemail = (email, pass) => {
         return signInWithEmailAndPassword(auth, email, pass);
     }
     const signupwithemail = (email, pass) => {
-        return createUserWithEmailAndPassword(auth,email, pass);
+        setlogInProgress(true);
+        setTimeout(async() => {
+            await createUserWithEmailAndPassword(auth, email, pass)
+            .then(()=>{
+                loginwithemail(email, pass)
+                .then(()=>{
+                    setlogInProgress(false);
+                    navigate("/")
+                })   
+            })
+        }, 1500);
     }
 
     const logout = () => {
@@ -39,7 +50,7 @@ export const UserContextProvider = ({ children }) => {
         return unsubscribe;
     }, [])
 
-    return <userContext.Provider value={{ logInProgress, setlogInProgress, userData, loginwithemail, logout, loginwithgoogle, currentPage, setcurrentPage, signupwithemail }}>{children}</userContext.Provider>
+    return <userContext.Provider value={{ logInProgress, setlogInProgress, userData, loginwithemail, logout, loginwithgoogle, currentPage, setcurrentPage, signupwithemail, welcomeloading, setwelcomeloading }}>{children}</userContext.Provider>
 }
 
 export const useUserAuthContext = () => useContext(userContext);

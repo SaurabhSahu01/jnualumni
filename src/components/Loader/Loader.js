@@ -3,8 +3,8 @@ import spinner from "../../icons/spinner.svg";
 
 function Loader() {
   return (
-    <div className='w-[100%] h-[100vh] bg-transparent opacity-90 flex justify-center self-center mx-auto z-[1000] absolute'>
-        <img src={spinner} alt="loader" className='w-full mx-auto'/>
+    <div className='w-[100%] h-[100vh] bg-[#000000dd] flex justify-center self-center mx-auto z-[1000] fixed'>
+        <img src={spinner} alt="loader" className='w-full opacity-100 mx-auto'/>
     </div>
   )
 }

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {useUserAuthContext} from "../context/UserContext"
-
+import Loader from "../components/Loader/Loader";
 function Signup() {
-  const {loginwithemail, signupwithemail} = useUserAuthContext();
+  const {signupwithemail, logInProgress} = useUserAuthContext();
   const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
@@ -35,18 +35,13 @@ function Signup() {
   const signupHandler =  async (e) => {
     e.preventDefault();
     if(data.name !== "" && data.email !== "" && data.password !== ""){
-      await signupwithemail(data.email, data.password)
-      .then(async () => {
-         await loginwithemail(data.email, data.password)
-         .then(() => {
-            navigate("/");
-         })
-      })  
+      signupwithemail(data.email, data.password);
     }
   }
 
   return (
     <>
+      {logInProgress ? <Loader></Loader> : <></>}
       <div className="w-full h-[86vh] grid place-items-center ">
         <div className="w-1/3 rounded-2xl py-8 bg-[#030503] flex flex-col justify-center items-center gap-4">
           <h1 className="text-3xl text-[#ddeddd]">Create Your Account</h1>
