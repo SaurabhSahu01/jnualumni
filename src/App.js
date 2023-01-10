@@ -11,6 +11,11 @@ import Signup from "./pages/Signup";
 import { ProtectedRoute } from "./context/ProtectedRoute";
 import { UserContextProvider } from "./context/UserContext";
 import Registration from "./pages/Registration";
+import AddGallary from "./pages/AddGallary";
+import ShowGallary from "./pages/ShowGallary";
+import AddEvent from "./pages/AddEvent";
+import ShowEvent from "./pages/ShowEvent";
+import EventGallary from "./pages/EventGallary";
 function App() {
   return (
     <>
@@ -25,6 +30,11 @@ function App() {
         <Route path="/login" exact={true} element={<Login />}></Route> 
         <Route path="/loginPage1" exact={true} element={<FormPage1 />}></Route> 
         <Route path="/loginPage2" exact={true} element={<FormPage2 />}></Route> 
+        <Route path="/addgallary" exact={true} element={<AddGallary />}></Route> 
+        <Route path="/showgallary" exact={true} element={<ShowGallary />}></Route>
+        <Route path="/addevent" exact={true} element={<AddEvent/>}></Route> 
+        <Route path="/showevent" exact={true} element={<ShowEvent/>}></Route>
+        <Route path="/show" exact={true} element={<EventGallary/>}></Route>  
       </Routes>
       </UserContextProvider>
     </>

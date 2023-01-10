@@ -51,6 +51,7 @@ function Login() {
     await loginwithemail(values.username, values.password)
       .then(() => {
         setlogInProgress(false);
+
         navigate("/");
       })
       .catch((err) => {
@@ -110,6 +111,9 @@ function Login() {
                   const token = credential.accessToken;
                   // The signed-in user info.
                   const user = result.user;
+                  // console.log("hhhhh", user.uid);
+                  
+                  // setuserData({})
                   navigate("/");
                   // ...
                 }).catch((error) => {

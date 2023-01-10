@@ -14,6 +14,8 @@ import HeaderLogin from '../components/HeaderLogin';
 import Platform from '../components/HomePageComponents/Platform'
 import HomeExtras from '../components/HomePageComponents/HomeExtras'
 import ExtraTabs from '../components/HomePageComponents/ExtraTabs'
+import EventGallary from './EventGallary';
+
 function Home() {
   const {userData, setcurrentPage} = useUserAuthContext();
   setcurrentPage(window.location.pathname);
@@ -67,6 +69,7 @@ function Home() {
       <Platform />
       <HomeExtras />
       <ExtraTabs />
+      <div><EventGallary/></div>
       <Footer></Footer>
     </>
   )
