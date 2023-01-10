@@ -11,7 +11,7 @@ export const UserContextProvider = ({ children }) => {
     const [userData, setuserData] = useState();
     const [logInProgress, setlogInProgress] = useState(false);
     const [currentPage, setcurrentPage] = useState()
-    const [isProfileCompleted, setProfileCompleted] = useState(true);
+    const [isProfileCompleted, setProfileCompleted] = useState(false);
     const loginwithemail = (email, pass) => {
         return signInWithEmailAndPassword(auth, email, pass);
     }

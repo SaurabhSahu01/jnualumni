@@ -12,7 +12,7 @@ import InputSelect from '../components/ProfileFormComponents/inputSelect'
 import InputText from '../components/ProfileFormComponents/inputText'
 function Profile() {
     const navigate = useNavigate();
-    const { userData } = useUserAuthContext();
+    const { userData, setProfileCompleted } = useUserAuthContext();
     const [userProfile, setuserProfile] = useState({
         image: null,
         name: null,
@@ -43,7 +43,8 @@ function Profile() {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+        setProfileCompleted(true);
+        navigate("/");
     }
     console.log(userProfile);
     return (

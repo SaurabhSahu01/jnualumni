@@ -25,14 +25,14 @@ function App() {
     <> 
       {(!welcomeLoading) ? (<UserContextProvider>
       <Routes>
-        <Route path="/" exact element={<ProfileProtectedRoute><Home/></ProfileProtectedRoute>}></Route>
-        <Route path="/signup" exact element={<ProfileProtectedRoute><ProtectedRoute><Signup/></ProtectedRoute></ProfileProtectedRoute>}></Route>
-        <Route path="/feeds" exact element={<ProfileProtectedRoute><ProtectedRoute><Feeds /></ProtectedRoute></ProfileProtectedRoute>}></Route> 
-        <Route path="/join" exact element={<ProfileProtectedRoute><ProtectedRoute><Join /></ProtectedRoute></ProfileProtectedRoute>}></Route>
-        <Route path="/jobs" exact element={<ProfileProtectedRoute><ProtectedRoute><Jobs /></ProtectedRoute></ProfileProtectedRoute>}></Route> 
+        <Route path="/" exact element={<Home />}></Route>
+        <Route path="/signup" exact element={<ProtectedRoute><Signup/></ProtectedRoute>}></Route>
+        <Route path="/feeds" exact element={<ProtectedRoute><Feeds /></ProtectedRoute>}></Route> 
+        <Route path="/join" exact element={<ProtectedRoute><Join /></ProtectedRoute>}></Route>
+        <Route path="/jobs" exact element={<ProtectedRoute><Jobs /></ProtectedRoute>}></Route> 
         <Route path="/profile" exact element={<ProfileProtectedRoute><ProtectedRoute><Profile /></ProtectedRoute></ProfileProtectedRoute>}></Route> 
-        <Route path="/about" exact element={<ProfileProtectedRoute><About/></ProfileProtectedRoute>}></Route>
-        <Route path="/login" exact element={<ProfileProtectedRoute><ProtectedRoute><Login /></ProtectedRoute></ProfileProtectedRoute>}></Route> 
+        <Route path="/about" exact element={<About/>}></Route>
+        <Route path="/login" exact element={<ProtectedRoute><Login /></ProtectedRoute>}></Route> 
       </Routes>
       </UserContextProvider>) : <></>}  
     </>
