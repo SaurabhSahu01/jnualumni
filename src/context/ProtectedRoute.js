@@ -10,7 +10,7 @@ export const ProtectedRoute = ({children})=> {
   // stop the non-verified user
 
   // case of not logged in
-  if(userData === null){
+  if(!userData){
     if(children.type.name === "Signup"){
       children = <Signup />
     }
@@ -26,5 +26,6 @@ export const ProtectedRoute = ({children})=> {
       children = <Home />
     }
   }
+
   return  children;    
 }
