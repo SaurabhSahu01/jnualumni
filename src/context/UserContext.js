@@ -16,17 +16,7 @@ export const UserContextProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, pass);
     }
     const signupwithemail = (email, pass) => {
-        setlogInProgress(true);
-        setTimeout(async() => {
-            await createUserWithEmailAndPassword(auth, email, pass)
-            .then(()=>{
-                loginwithemail(email, pass)
-                .then(()=>{
-                    setlogInProgress(false);
-                    navigate("/")
-                })   
-            })
-        }, 1500);
+        return createUserWithEmailAndPassword(auth, email, pass);
     }
 
     const logout = () => {
