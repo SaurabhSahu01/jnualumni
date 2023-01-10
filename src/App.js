@@ -9,6 +9,7 @@ import Feeds from "./pages/Feeds";
 import Signup from "./pages/Signup";
 import { Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from "./context/ProtectedRoute";
+import { ProfileProtectedRoute } from "./context/ProfileProtectedRoute";
 import { UserContextProvider } from "./context/UserContext";
 
 function App() {
@@ -24,14 +25,14 @@ function App() {
     <> 
       {(!welcomeLoading) ? (<UserContextProvider>
       <Routes>
-        <Route path="/" exact={true} element={<Home />}></Route>
-        <Route path="/signup" exact={true} element={<Signup />}></Route>
-        <Route path="/feeds" exact={true} element={<ProtectedRoute><Feeds /></ProtectedRoute>}></Route> 
-        <Route path="/join" exact={true} element={<ProtectedRoute><Join /></ProtectedRoute>}></Route>
-        <Route path="/jobs" exact={true} element={<ProtectedRoute><Jobs /></ProtectedRoute>}></Route> 
-        <Route path="/profile" exact={true} element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route> 
-        <Route path="/about" exact={true} element={<About />}></Route>
-        <Route path="/login" exact={true} element={<Login />}></Route> 
+        <Route path="/" exact element={<ProfileProtectedRoute><Home/></ProfileProtectedRoute>}></Route>
+        <Route path="/signup" exact element={<ProfileProtectedRoute><ProtectedRoute><Signup/></ProtectedRoute></ProfileProtectedRoute>}></Route>
+        <Route path="/feeds" exact element={<ProfileProtectedRoute><ProtectedRoute><Feeds /></ProtectedRoute></ProfileProtectedRoute>}></Route> 
+        <Route path="/join" exact element={<ProfileProtectedRoute><ProtectedRoute><Join /></ProtectedRoute></ProfileProtectedRoute>}></Route>
+        <Route path="/jobs" exact element={<ProfileProtectedRoute><ProtectedRoute><Jobs /></ProtectedRoute></ProfileProtectedRoute>}></Route> 
+        <Route path="/profile" exact element={<ProfileProtectedRoute><ProtectedRoute><Profile /></ProtectedRoute></ProfileProtectedRoute>}></Route> 
+        <Route path="/about" exact element={<ProfileProtectedRoute><About/></ProfileProtectedRoute>}></Route>
+        <Route path="/login" exact element={<ProfileProtectedRoute><ProtectedRoute><Login /></ProtectedRoute></ProfileProtectedRoute>}></Route> 
       </Routes>
       </UserContextProvider>) : <></>}  
     </>

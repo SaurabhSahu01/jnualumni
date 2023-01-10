@@ -11,6 +11,7 @@ export const UserContextProvider = ({ children }) => {
     const [userData, setuserData] = useState();
     const [logInProgress, setlogInProgress] = useState(false);
     const [currentPage, setcurrentPage] = useState()
+    const [isProfileCompleted, setProfileCompleted] = useState(true);
     const loginwithemail = (email, pass) => {
         return signInWithEmailAndPassword(auth, email, pass);
     }
@@ -49,7 +50,7 @@ export const UserContextProvider = ({ children }) => {
         return unsubscribe;
     }, [])
 
-    return <userContext.Provider value={{ logInProgress, setlogInProgress, userData, loginwithemail, logout, loginwithgoogle, currentPage, setcurrentPage, signupwithemail}}>{children}</userContext.Provider>
+    return <userContext.Provider value={{ logInProgress, setlogInProgress, userData, loginwithemail, logout, loginwithgoogle, currentPage, setcurrentPage, signupwithemail, isProfileCompleted, setProfileCompleted}}>{children}</userContext.Provider>
 }
 
 export const useUserAuthContext = () => useContext(userContext);
