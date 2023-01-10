@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Join from "./pages/Join";
@@ -14,9 +14,17 @@ import { ProtectedRoute } from "./context/ProtectedRoute";
 import { UserContextProvider } from "./context/UserContext";
 
 function App() {
+  const [welcomeLoading, setwelcomeLoading] = useState(true);
+  const preLoader = document.getElementById("preLoader");
+  useEffect(() => {
+    setTimeout(() => {
+      setwelcomeLoading(false);
+      preLoader.style.display = "none";
+    }, 1500);
+  })
   return (
-    <>
-      <UserContextProvider>
+    <> 
+      {(!welcomeLoading) ? (<UserContextProvider>
       <Routes>
         <Route path="/" exact={true} element={<Home />}></Route>
         <Route path="/signup" exact={true} element={<Signup />}></Route>
@@ -27,7 +35,7 @@ function App() {
         <Route path="/login" exact={true} element={<Login />}></Route> 
         <Route path="/profile" exact={true} element={<Profile />}></Route> 
       </Routes>
-      </UserContextProvider>
+      </UserContextProvider>) : <></>}  
     </>
   );
 }
