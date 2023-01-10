@@ -111,7 +111,7 @@ export const UserContextProvider = ({ children }) => {
         return unsubscribe;
     }, [])
 
-    return <userContext.Provider value={{ logInProgress, setlogInProgress, loginwithemail, logout, loginwithgoogle, currentPage, setcurrentPage , setuserData,SignUp,setProfile, userData}}>{children}</userContext.Provider>
+    return <userContext.Provider value={{ logInProgress, setlogInProgress, loginwithemail, logout, loginwithgoogle, currentPage, setcurrentPage , setuserData,SignUp,setProfile, userData, userid}}>{children}</userContext.Provider>
 }
 
 export const useUserAuthContext = () => useContext(userContext);
