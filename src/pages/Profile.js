@@ -42,9 +42,12 @@ function Profile() {
         setuserProfile({ ...userProfile, [name]: value })
     }
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setProfileCompleted(true);
-        navigate("/");
+        e.preventDefault();    
+        await setDoc(doc(db, "users", userData.uid), userProfile)
+        .then(()=>{
+            setProfileCompleted(true);
+            navigate("/");
+        })
     }
     console.log(userProfile);
     return (
