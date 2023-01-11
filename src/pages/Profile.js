@@ -74,8 +74,9 @@ function Profile() {
                                         <img src={userIcon} alt="#" className='shadow-xl rounded-full h-auto align-middle border-none absolute top-[-60px] max-w-[150px]' />
                                     </div>
                                 </div>
-                                <div className='w-full flex justify-end mt-2'>
-                                    <EditIcon onClick={()=>seteditmode(true)}></EditIcon>    
+                                <div className='w-full flex justify-end mt-2 cursor-pointer gap-1' onClick={()=>seteditmode(true)}>
+                                    <EditIcon></EditIcon>    
+                                    <span>Edit</span>
                                 </div>
                             </div>
                             <div className="text-center mt-28">
