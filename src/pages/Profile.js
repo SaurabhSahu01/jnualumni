@@ -10,6 +10,8 @@ import FinalHeader from '../components/FinalHeader'
 import data from '../data/ProfileData.json'
 import InputSelect from '../components/ProfileFormComponents/inputSelect'
 import InputText from '../components/ProfileFormComponents/inputText'
+import EditIcon from '@mui/icons-material/Edit';
+
 function Profile() {
     const navigate = useNavigate();
     const { userData, setProfileData, profileData } = useUserAuthContext();
@@ -21,7 +23,7 @@ function Profile() {
         DOB: null,
         phone: null,
         role: null,
-        program: null, 
+        program: null,
         school: null,
         yearOfJoin: null,
         yearOfGrad: null,
@@ -29,7 +31,7 @@ function Profile() {
         currLoc: null,
         PIN: null
     })
-    const {image, name, gender, DOB, phone, role, program, school, yearOfJoin, yearOfGrad, currAdd, currLoc, PIN} = userProfile;
+    const { image, name, gender, DOB, phone, role, program, school, yearOfJoin, yearOfGrad, currAdd, currLoc, PIN } = userProfile;
     function displayImage(e) {
         if (e.target.files) {
             setuserProfile({ ...userProfile, image: URL.createObjectURL(e.target.files[0]) })
@@ -39,22 +41,23 @@ function Profile() {
         }
     }
     const handleChange = (e) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
         setuserProfile({ ...userProfile, [name]: value })
     }
     const handleSubmit = async (e) => {
-        e.preventDefault();   
-        console.log("hello") 
+        e.preventDefault();
+        console.log("hello")
         await setDoc(doc(db, "users", userData.uid), userProfile)
-        .then(()=>{
-            setProfileData({...profileData, profileCompleted: true});
-            navigate("/");
-        })
+            .then(() => {
+                setProfileData({ ...profileData, profileCompleted: true });
+                seteditmode(false);
+                navigate("/");
+            })
     }
     return (
         <>
             <FinalHeader></FinalHeader>
-            {(profileData.data !== null) ? (<div className='rounded-[20px] w-11/12 mx-auto my-10 self-center bg-white grid place-items-center'>
+            {((profileData.data !== null) ^ (editmode)) ? (<div className='rounded-[20px] w-11/12 mx-auto my-10 self-center bg-white grid place-items-center'>
                 <div className='w-11/12 my-5 flex flex-wrap'>
                     <div className='w-1/3'>
                         <div className='mx-auto' style={{ position: "relative" }}>
@@ -63,7 +66,7 @@ function Profile() {
                         </div>
                     </div>
                     <div className='w-2/3 my-auto mx-auto col-span-2'>
-                        <span className="text-3xl text-blue-500 font-semibold">{profileData.data.name}</span>
+                        <span className="text-5xl text-blue-500 font-semibold">{profileData.data.name}</span>
                     </div>
                     <p className='text-4xl w-full text-blue-700 mt-4 font-bold'>User Info</p>
                     <hr />
@@ -117,7 +120,10 @@ function Profile() {
                     </div>
 
                 </div>
-                {((name && gender && DOB && phone && role && program && school && yearOfJoin && yearOfGrad && currAdd && currLoc && PIN) === null) ? (<button type="button" className='m-4 text-white rounded-lg p-2 bg-[#4e299e6e] font-semibold cursor-not-allowed' disabled>Submit</button>) : (<button type="button" className='m-4 text-white rounded-lg p-2 bg-[#4e299e] font-semibold transition duration-150 hover:scale-105'  onClick={handleSubmit}>Submit</button>)}    
+                <div onClick={() => seteditmode(true)} className="flex flex-row justify-center place-items-center my-3 cursor-pointer">
+                    <EditIcon className="m-1" fontSize='large'></EditIcon>
+                    <span className='text-center'>Edit</span>
+                </div>
             </div>) : (<div className='rounded-[20px] w-11/12 mx-auto my-10 self-center bg-white grid place-items-center'>
                 <div className='w-11/12 my-5 flex flex-wrap'>
                     <div className='w-1/3'>
@@ -147,29 +153,29 @@ function Profile() {
                     <hr />
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Select Role*</h1>
-                        <InputSelect options={data.roles} onChange={handleChange} name="role"/>
+                        <InputSelect options={data.roles} onChange={handleChange} name="role" />
                     </div>
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Select Program*</h1>
-                        <InputSelect options={data.program} onChange={handleChange} name="program"/>
+                        <InputSelect options={data.program} onChange={handleChange} name="program" />
                     </div>
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Select School*</h1>
-                        <InputSelect options={data.school} onChange={handleChange} name="school"/>
+                        <InputSelect options={data.school} onChange={handleChange} name="school" />
                     </div>
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Select Year of Joining*</h1>
-                        <InputSelect options={data.JoinYear} onChange={handleChange} name="yearOfJoin"/>
+                        <InputSelect options={data.JoinYear} onChange={handleChange} name="yearOfJoin" />
                     </div>
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Select Year of Graduation*</h1>
-                        <InputSelect options={data.GradYear} onChange={handleChange} name="yearOfGrad"/>
+                        <InputSelect options={data.GradYear} onChange={handleChange} name="yearOfGrad" />
                     </div>
                     <p className='w-full text-2xl mt-4 text-gray-700'>Address*</p>
                     <hr />
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Current Address*</h1>
-                        <InputText name="currAdd" placeholder="Enter Address" onChange={handleChange}/>
+                        <InputText name="currAdd" placeholder="Enter Address" onChange={handleChange} />
                     </div>
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Current Location*</h1>
@@ -181,9 +187,9 @@ function Profile() {
                     </div>
 
                 </div>
-                {((name && gender && DOB && phone && role && program && school && yearOfJoin && yearOfGrad && currAdd && currLoc && PIN) === null) ? (<button type="button" className='m-4 text-white rounded-lg p-2 bg-[#4e299e6e] font-semibold cursor-not-allowed' disabled>Submit</button>) : (<button type="button" className='m-4 text-white rounded-lg p-2 bg-[#4e299e] font-semibold transition duration-150 hover:scale-105'  onClick={handleSubmit}>Submit</button>)}    
+                {((name && gender && DOB && phone && role && program && school && yearOfJoin && yearOfGrad && currAdd && currLoc && PIN) === null) ? (<button type="button" className='m-4 text-white rounded-lg p-2 bg-[#4e299e6e] font-semibold cursor-not-allowed' disabled>Submit</button>) : (<button type="button" className='m-4 text-white rounded-lg p-2 bg-[#4e299e] font-semibold transition duration-150 hover:scale-105' onClick={handleSubmit}>Submit</button>)}
             </div>)}
-            
+
         </>
     )
 }
