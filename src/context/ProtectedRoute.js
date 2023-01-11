@@ -3,7 +3,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Home from "../pages/Home";
 export const ProtectedRoute = ({children})=> {
-    const {userData} = useUserAuthContext();
+    const {userData, profileData} = useUserAuthContext();
   // two cases  arise -> userData == null(not loggedin) and userData != null(logged in)
   // we have to protect our routes in both the cases
   // stop the non-logged in user 
@@ -21,8 +21,8 @@ export const ProtectedRoute = ({children})=> {
 
   // case when user is logged in(via email) but not verified
   else if(userData !== null){
-    // user's email is not verified
-    if(!userData.emailVerified){
+    // check if user's email is verified and profile is complete
+    if(!userData.emailVerified || !profileData.profileCompleted){
       children = <Home />
     }
   }

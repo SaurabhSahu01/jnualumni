@@ -51,7 +51,7 @@ function Login() {
     await loginwithemail(values.username, values.password)
       .then(() => {
         setlogInProgress(false);
-        navigate("/");
+        navigate("/profile");
       })
       .catch((err) => {
         setlogInProgress(false);
@@ -110,7 +110,7 @@ function Login() {
                   const token = credential.accessToken;
                   // The signed-in user info.
                   const user = result.user;
-                  navigate("/");
+                  navigate("/profile");
                   // ...
                 }).catch((error) => {
                   // Handle Errors here.
