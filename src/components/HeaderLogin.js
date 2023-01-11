@@ -81,7 +81,7 @@ function HeaderLogin() {
                     <h3 className='my-auto font-semibold text-[#696969]'>{userData.displayName ? userData.displayName : "Anonymous"}<span><Dropdown.Toggle className="outline-none hover:bg-transparent mx-1" style={{ color: "black", border: "none", background: "transparent" }}></Dropdown.Toggle></span></h3>
                 </section>
                 <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => { navigate("/") }}><PersonOutlineIcon className='my-auto'></PersonOutlineIcon><span className='my-auto mx-1'>My Profile</span></Dropdown.Item>
+                    <Dropdown.Item onClick={() => { navigate("/profile") }}><PersonOutlineIcon className='my-auto'></PersonOutlineIcon><span className='my-auto mx-1'>My Profile</span></Dropdown.Item>
                     <Dropdown.Item onClick={() => { logout() }}><LogoutIcon></LogoutIcon><span className='my-auto mx-1'>Logout</span></Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>

@@ -9,7 +9,6 @@ import Feeds from "./pages/Feeds";
 import Signup from "./pages/Signup";
 import { Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from "./context/ProtectedRoute";
-import { ProfileProtectedRoute } from "./context/ProfileProtectedRoute";
 import { UserContextProvider } from "./context/UserContext";
 
 function App() {
@@ -30,7 +29,7 @@ function App() {
         <Route path="/feeds" exact element={<ProtectedRoute><Feeds /></ProtectedRoute>}></Route> 
         <Route path="/join" exact element={<ProtectedRoute><Join /></ProtectedRoute>}></Route>
         <Route path="/jobs" exact element={<ProtectedRoute><Jobs /></ProtectedRoute>}></Route> 
-        <Route path="/profile" exact element={<ProfileProtectedRoute><ProtectedRoute><Profile /></ProtectedRoute></ProfileProtectedRoute>}></Route> 
+        <Route path="/profile" exact element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route> 
         <Route path="/about" exact element={<About />}></Route>
         <Route path="/login" exact element={<ProtectedRoute><Login /></ProtectedRoute>}></Route> 
       </Routes>
