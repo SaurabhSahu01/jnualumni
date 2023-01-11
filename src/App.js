@@ -10,6 +10,11 @@ import Signup from "./pages/Signup";
 import { Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from "./context/ProtectedRoute";
 import { UserContextProvider } from "./context/UserContext";
+import AddGallary from "./pages/AddGallary"
+import AddEvent from "./pages/AddEvent"
+import ShowGallary from "./pages/ShowGallary"
+import ShowEvent from "./pages/ShowEvent"
+import EventGallary from "./pages/EventGallary"
 
 function App() {
   const [welcomeLoading, setwelcomeLoading] = useState(true);
@@ -32,6 +37,11 @@ function App() {
         <Route path="/profile" exact element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route> 
         <Route path="/about" exact element={<About />}></Route>
         <Route path="/login" exact element={<ProtectedRoute><Login /></ProtectedRoute>}></Route> 
+        <Route path="/addgallary" exact={true} element={<AddGallary />}></Route> 
+        <Route path="/showgallary" exact={true} element={<ShowGallary />}></Route>
+        <Route path="/addevent" exact={true} element={<AddEvent/>}></Route> 
+        <Route path="/showevent" exact={true} element={<ShowEvent/>}></Route>
+        <Route path="/show" exact={true} element={<EventGallary/>}></Route> 
       </Routes>
       </UserContextProvider>) : <></>}  
     </>
