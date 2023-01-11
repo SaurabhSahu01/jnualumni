@@ -11,10 +11,11 @@ import data from '../data/ProfileData.json'
 import InputSelect from '../components/ProfileFormComponents/inputSelect'
 import InputText from '../components/ProfileFormComponents/inputText'
 import EditIcon from '@mui/icons-material/Edit';
-
+import Loader from "../components/Loader/Loader";
 function Profile() {
     const navigate = useNavigate();
     const { userData, setProfileData, profileData } = useUserAuthContext();
+    const [loader, setloader] = useState(false)
     const [editmode, seteditmode] = useState(false);
     const [userProfile, setuserProfile] = useState({
         image: null,
@@ -29,9 +30,10 @@ function Profile() {
         yearOfGrad: null,
         currAdd: null,
         currLoc: null,
-        PIN: null
+        PIN: null,
+        about: null
     })
-    const { image, name, gender, DOB, phone, role, program, school, yearOfJoin, yearOfGrad, currAdd, currLoc, PIN } = userProfile;
+    const { image, name, gender, DOB, phone, role, program, school, yearOfJoin, yearOfGrad, currAdd, currLoc, PIN, about } = userProfile;
     function displayImage(e) {
         if (e.target.files) {
             setuserProfile({ ...userProfile, image: URL.createObjectURL(e.target.files[0]) })
@@ -44,87 +46,72 @@ function Profile() {
         const { name, value } = e.target;
         setuserProfile({ ...userProfile, [name]: value })
     }
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
+        setloader(true);
         e.preventDefault();
         console.log("hello")
-        await setDoc(doc(db, "users", userData.uid), userProfile)
-            .then(() => {
-                setProfileData({ ...profileData, profileCompleted: true });
-                seteditmode(false);
-                navigate("/");
-            })
+        setTimeout(async()=>{
+            await setDoc(doc(db, "users", userData.uid), userProfile)
+                .then(() => {
+                    setProfileData({ ...profileData, profileCompleted: true });
+                    seteditmode(false);
+                    setloader(false);
+                    navigate("/");
+                })
+        },1000)
     }
     return (
         <>
+            {loader ? (<Loader></Loader>) : (<></>)}
             <FinalHeader></FinalHeader>
-            {((profileData.data !== null) ^ (editmode)) ? (<div className='rounded-[20px] w-11/12 mx-auto my-10 self-center bg-white grid place-items-center'>
-                <div className='w-11/12 my-5 flex flex-wrap'>
-                    <div className='w-1/3'>
-                        <div className='mx-auto' style={{ position: "relative" }}>
-                            <label for="image">{(userProfile.image === null) ? (<img src={userIcon} alt="user" className='rounded-full border-gray-400 border-[1px] h-48 w-48 object-contain' />) : (<img src={userProfile.image} alt="user" className='rounded-full border-gray-400 border-[1px] h-48 w-48 object-contain' />)}</label>
-                            <input id="image" type="file" accept="image/*" style={{ display: "none" }} onChange={displayImage} />
+            {((profileData.data !== null) ^ (editmode)) ? (<section className="pt-10 bg-blueGray-50">
+                <div className="w-full lg:w-9/12 px-4 mx-auto">
+                    <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
+                        <div className="px-6">
+                            <div className="flex flex-wrap justify-center">
+                                <div className="w-full px-4 flex justify-center">
+                                    <div className='relative flex justify-center'>
+                                        <img src={userIcon} alt="#" className='shadow-xl rounded-full h-auto align-middle border-none absolute top-[-60px] max-w-[150px]' />
+                                    </div>
+                                </div>
+                                <div className='w-full flex justify-end mt-2'>
+                                    <EditIcon onClick={()=>seteditmode(true)}></EditIcon>    
+                                </div>
+                            </div>
+                            <div className="text-center mt-28">
+                                <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700">
+                                    {profileData.data.name} <span className='text-sm'>({profileData.data.gender})</span>
+                                </h3>
+                                <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+                                    <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
+                                    {profileData.data.currAdd}, {profileData.data.PIN}
+                                </div>
+                                <div className="mb-2 text-blueGray-600 mt-10">
+                                    <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+                                    {profileData.data.role}
+                                </div>
+                                <div className="mb-2 text-blueGray-600">
+                                    <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>
+                                    {profileData.data.program}, {profileData.data.school}, {profileData.data.yearOfJoin} - {profileData.data.yearOfGrad}
+                                </div>
+                                <div className="mb-2 text-blueGray-600">
+                                    <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>
+                                    {profileData.data.phone}
+                                </div>
+                            </div>
+                            <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
+                                <div className="flex flex-wrap justify-center">
+                                    <div className="w-full lg:w-9/12 px-4">
+                                        <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
+                                            {profileData.data.about}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className='w-2/3 my-auto mx-auto col-span-2'>
-                        <span className="text-5xl text-blue-500 font-semibold">{profileData.data.name}</span>
-                    </div>
-                    <p className='text-4xl w-full text-blue-700 mt-4 font-bold'>User Info</p>
-                    <hr />
-                    <div className='w-1/3 p-6'>
-                        <h1 className='text-blue-700'>Gender</h1>
-                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.gender}</span>
-                    </div>
-                    <div className='w-1/3 p-6'>
-                        <h1 className='text-blue-700'>Date of Birth</h1>
-                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.DOB}</span>
-                    </div>
-                    <div className='w-1/3 p-6'>
-                        <h1 className='text-blue-700'>Phone Number</h1>
-                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.phone}</span>
-                    </div>
-                    <p className='text-4xl w-full text-blue-700 mt-4 font-bold'>School Info</p>
-                    <hr />
-                    <div className='w-1/3 p-6'>
-                        <h1 className='text-blue-700'>Role</h1>
-                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.role}</span>
-                    </div>
-                    <div className='w-1/3 p-6'>
-                        <h1 className='text-blue-700'>Program</h1>
-                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.program}</span>
-                    </div>
-                    <div className='w-1/3 p-6'>
-                        <h1 className='text-blue-700'>School</h1>
-                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.school}</span>
-                    </div>
-                    <div className='w-1/3 p-6'>
-                        <h1 className='text-blue-700'>Year of Joining</h1>
-                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.yearOfJoin}</span>
-                    </div>
-                    <div className='w-1/3 p-6'>
-                        <h1 className='text-blue-700'>Year of Graduation</h1>
-                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.yearOfGrad}</span>
-                    </div>
-                    <p className='text-4xl w-full text-blue-700 mt-4 font-bold'>Address</p>
-                    <hr />
-                    <div className='w-1/3 p-6'>
-                        <h1 className='text-blue-700'>Current Address</h1>
-                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.currAdd}</span>
-                    </div>
-                    <div className='w-1/3 p-6'>
-                        <h1 className='text-blue-700'>Current Location</h1>
-                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.currLoc}</span>
-                    </div>
-                    <div className='w-1/3 p-6'>
-                        <h1 className='text-blue-700'>Pin Code</h1>
-                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.DOB}</span>
-                    </div>
-
                 </div>
-                <div onClick={() => seteditmode(true)} className="flex flex-row justify-center place-items-center my-3 cursor-pointer">
-                    <EditIcon className="m-1" fontSize='large'></EditIcon>
-                    <span className='text-center'>Edit</span>
-                </div>
-            </div>) : (<div className='rounded-[20px] w-11/12 mx-auto my-10 self-center bg-white grid place-items-center'>
+            </section>) : (<div className='rounded-[20px] w-11/12 mx-auto my-10 self-center bg-white grid place-items-center'>
                 <div className='w-11/12 my-5 flex flex-wrap'>
                     <div className='w-1/3'>
                         <div className='mx-auto' style={{ position: "relative" }}>
@@ -148,6 +135,10 @@ function Profile() {
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Phone Number*</h1>
                         <InputText name="phone" type="tel" placeholder="Enter phone number" onChange={handleChange} />
+                    </div>
+                    <div className='w-1/3 p-6'>
+                        <h1 className='text-blue-700'>About*</h1>
+                        <InputText name="about" type="text" placeholder="Something about yourself" onChange={handleChange} />
                     </div>
                     <p className='w-full text-2xl mt-4 text-gray-700'>School Info*</p>
                     <hr />
@@ -187,7 +178,10 @@ function Profile() {
                     </div>
 
                 </div>
-                {((name && gender && DOB && phone && role && program && school && yearOfJoin && yearOfGrad && currAdd && currLoc && PIN) === null) ? (<button type="button" className='m-4 text-white rounded-lg p-2 bg-[#4e299e6e] font-semibold cursor-not-allowed' disabled>Submit</button>) : (<button type="button" className='m-4 text-white rounded-lg p-2 bg-[#4e299e] font-semibold transition duration-150 hover:scale-105' onClick={handleSubmit}>Submit</button>)}
+                <div className="flex justify-center self-center m-2 gap-2">
+                    <button type="button" className='m-1 text-white rounded-lg p-2 bg-[#4e299e] font-semibold transition duration-150 hover:scale-105' onClick={()=>seteditmode(false)}>Back</button>
+                    {((name && gender && DOB && phone && role && program && school && yearOfJoin && yearOfGrad && currAdd && currLoc && PIN && about) === null) ? (<button type="button" className='m-1 text-white rounded-lg p-2 bg-[#4e299e6e] font-semibold cursor-not-allowed' disabled>Submit</button>) : (<button type="button" className='m-1 text-white rounded-lg p-2 bg-[#4e299e] font-semibold transition duration-150 hover:scale-105' onClick={handleSubmit}>Submit</button>)}
+                </div>
             </div>)}
 
         </>
