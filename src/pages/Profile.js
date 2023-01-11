@@ -4,15 +4,21 @@ import { useState } from 'react'
 import userIcon from "../icons/profileIcon.png"
 import { db } from "../firebase/firebase"
 import { doc, setDoc } from "firebase/firestore"
+import userIcon from "../icons/profileIcon.png"
+import { db } from "../firebase/firebase"
+import { doc, setDoc } from "firebase/firestore"
 import { useUserAuthContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
 import FinalHeader from '../components/FinalHeader'
 import data from '../data/ProfileData.json'
 import InputSelect from '../components/ProfileFormComponents/inputSelect'
 import InputText from '../components/ProfileFormComponents/inputText'
+import EditIcon from '@mui/icons-material/Edit';
+
 function Profile() {
     const navigate = useNavigate();
-    const { userData } = useUserAuthContext();
+    const { userData, setProfileData, profileData } = useUserAuthContext();
+    const [editmode, seteditmode] = useState(false);
     const [userProfile, setuserProfile] = useState({
         image: null,
         name: null,
@@ -20,7 +26,7 @@ function Profile() {
         DOB: null,
         phone: null,
         role: null,
-        program: null, 
+        program: null,
         school: null,
         yearOfJoin: null,
         yearOfGrad: null,
@@ -28,28 +34,101 @@ function Profile() {
         currLoc: null,
         PIN: null
     })
-    const {image, name, gender, DOB, phone, role, program, school, yearOfJoin, yearOfGrad, currAdd, currLoc, PIN} = userProfile;
+    const { image, name, gender, DOB, phone, role, program, school, yearOfJoin, yearOfGrad, currAdd, currLoc, PIN } = userProfile;
     function displayImage(e) {
         if (e.target.files) {
             setuserProfile({ ...userProfile, image: URL.createObjectURL(e.target.files[0]) })
         }
-        else {
+        else  {
             // set from the database
         }
     }
     const handleChange = (e) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
         setuserProfile({ ...userProfile, [name]: value })
     }
-    const handleSubmit = async (e) => {
+    const handleSubmit = async  (e) => {
         e.preventDefault();
-        
+        console.log("hello")
+        await setDoc(doc(db, "users", userData.uid), userProfile)
+            .then(() => {
+                setProfileData({ ...profileData, profileCompleted: true });
+                seteditmode(false);
+                navigate("/");
+            })
     }
     console.log(userProfile);
     return (
         <>
             <FinalHeader></FinalHeader>
-            <div className='rounded-[20px] w-11/12 mx-auto my-10 self-center bg-white grid place-items-center'>
+            {((profileData.data !== null) ^ (editmode)) ? (<div className='rounded-[20px] w-11/12 mx-auto my-10 self-center bg-white grid place-items-center'>
+                <div className='w-11/12 my-5 flex flex-wrap'>
+                    <div className='w-1/3'>
+                        <div className='mx-auto' style={{ position: "relative" }}>
+                            <label for="image">{(userProfile.image === null) ? (<img src={userIcon} alt="user" className='rounded-full border-gray-400 border-[1px] h-48 w-48 object-contain' />) : (<img src={userProfile.image} alt="user" className='rounded-full border-gray-400 border-[1px] h-48 w-48 object-contain' />)}</label>
+                            <input id="image" type="file" accept="image/*" style={{ display: "none" }} onChange={displayImage} />
+                        </div>
+                    </div>
+                    <div className='w-2/3 my-auto mx-auto col-span-2'>
+                        <span className="text-5xl text-blue-500 font-semibold">{profileData.data.name}</span>
+                    </div>
+                    <p className='text-4xl w-full text-blue-700 mt-4 font-bold'>User Info</p>
+                    <hr />
+                    <div className='w-1/3 p-6'>
+                        <h1 className='text-blue-700'>Gender</h1>
+                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.gender}</span>
+                    </div>
+                    <div className='w-1/3 p-6'>
+                        <h1 className='text-blue-700'>Date of Birth</h1>
+                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.DOB}</span>
+                    </div>
+                    <div className='w-1/3 p-6'>
+                        <h1 className='text-blue-700'>Phone Number</h1>
+                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.phone}</span>
+                    </div>
+                    <p className='text-4xl w-full text-blue-700 mt-4 font-bold'>School Info</p>
+                    <hr />
+                    <div className='w-1/3 p-6'>
+                        <h1 className='text-blue-700'>Role</h1>
+                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.role}</span>
+                    </div>
+                    <div className='w-1/3 p-6'>
+                        <h1 className='text-blue-700'>Program</h1>
+                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.program}</span>
+                    </div>
+                    <div className='w-1/3 p-6'>
+                        <h1 className='text-blue-700'>School</h1>
+                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.school}</span>
+                    </div>
+                    <div className='w-1/3 p-6'>
+                        <h1 className='text-blue-700'>Year of Joining</h1>
+                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.yearOfJoin}</span>
+                    </div>
+                    <div className='w-1/3 p-6'>
+                        <h1 className='text-blue-700'>Year of Graduation</h1>
+                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.yearOfGrad}</span>
+                    </div>
+                    <p className='text-4xl w-full text-blue-700 mt-4 font-bold'>Address</p>
+                    <hr />
+                    <div className='w-1/3 p-6'>
+                        <h1 className='text-blue-700'>Current Address</h1>
+                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.currAdd}</span>
+                    </div>
+                    <div className='w-1/3 p-6'>
+                        <h1 className='text-blue-700'>Current Location</h1>
+                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.currLoc}</span>
+                    </div>
+                    <div className='w-1/3 p-6'>
+                        <h1 className='text-blue-700'>Pin Code</h1>
+                        <span className='text-2xl text-blue-500 font-semibold'>{profileData.data.DOB}</span>
+                    </div>
+
+                </div>
+                <div onClick={() => seteditmode(true)} className="flex flex-row justify-center place-items-center my-3 cursor-pointer">
+                    <EditIcon className="m-1" fontSize='large'></EditIcon>
+                    <span className='text-center'>Edit</span>
+                </div>
+            </div>) : (<div className='rounded-[20px] w-11/12 mx-auto my-10 self-center bg-white grid place-items-center'>
                 <div className='w-11/12 my-5 flex flex-wrap'>
                     <div className='w-1/3'>
                         <div className='mx-auto' style={{ position: "relative" }}>
@@ -78,29 +157,29 @@ function Profile() {
                     <hr />
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Select Role*</h1>
-                        <InputSelect options={data.roles} onChange={handleChange} name="role"/>
+                        <InputSelect options={data.roles} onChange={handleChange} name="role" />
                     </div>
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Select Program*</h1>
-                        <InputSelect options={data.program} onChange={handleChange} name="program"/>
+                        <InputSelect options={data.program} onChange={handleChange} name="program" />
                     </div>
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Select School*</h1>
-                        <InputSelect options={data.school} onChange={handleChange} name="school"/>
+                        <InputSelect options={data.school} onChange={handleChange} name="school" />
                     </div>
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Select Year of Joining*</h1>
-                        <InputSelect options={data.JoinYear} onChange={handleChange} name="yearOfJoin"/>
+                        <InputSelect options={data.JoinYear} onChange={handleChange} name="yearOfJoin" />
                     </div>
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Select Year of Graduation*</h1>
-                        <InputSelect options={data.GradYear} onChange={handleChange} name="yearOfGrad"/>
+                        <InputSelect options={data.GradYear} onChange={handleChange} name="yearOfGrad" />
                     </div>
                     <p className='w-full text-2xl mt-4 text-gray-700'>Address*</p>
                     <hr />
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Current Address*</h1>
-                        <InputText name="currAdd" placeholder="Enter Address" onChange={handleChange}/>
+                        <InputText name="currAdd" placeholder="Enter Address" onChange={handleChange} />
                     </div>
                     <div className='w-1/3 p-6'>
                         <h1 className='text-blue-700'>Current Location*</h1>
@@ -112,7 +191,7 @@ function Profile() {
                     </div>
 
                 </div>
-                {((image && name && gender && DOB && phone && role && program && school && yearOfJoin && yearOfGrad && currAdd && currLoc && PIN) === null) ? (<button type="button" className='m-4 text-white rounded-lg p-2 bg-[#4e299e6e] font-semibold cursor-not-allowed' disabled>Submit</button>) : (<button type="button" className='m-4 text-white rounded-lg p-2 bg-[#4e299e] font-semibold transition duration-150 hover:scale-105'  onClick={handleSubmit}>Submit</button>)}    
+                <button type="button" className='btn btn-success bg-blue-600 my-5' onClick={handleSubmit}>Submit</button>
             </div>
         </>
     )

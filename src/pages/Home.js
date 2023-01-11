@@ -13,6 +13,7 @@ import Platform from '../components/HomePageComponents/Platform'
 import HomeExtras from '../components/HomePageComponents/HomeExtras'
 import ExtraTabs from '../components/HomePageComponents/ExtraTabs'
 import FinalHeader from '../components/FinalHeader';
+import EventGallary from "../pages/EventGallary"
 function Home() {
   const {setcurrentPage} = useUserAuthContext();
   useEffect(() => {
@@ -20,7 +21,7 @@ function Home() {
   }, [])
   
   return (
-    <>
+    <div className='relative'>
       <FinalHeader></FinalHeader>
       <div className="w-11/12 mx-auto my-[5.3rem] ">
         <Carousel className="h-[30rem]">
@@ -69,8 +70,9 @@ function Home() {
       <Platform />
       <HomeExtras />
       <ExtraTabs />
+      <EventGallary />
       <Footer></Footer>
-    </>
+    </div>
   )
 }
 

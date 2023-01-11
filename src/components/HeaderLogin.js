@@ -15,7 +15,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 function HeaderLogin() {
     const navigate = useNavigate();
-    const { userData, logout, currentPage } = useUserAuthContext();
+    const { userData, logout, currentPage, profileData } = useUserAuthContext();
+
     return (
         <div className='bg-bgoffwhite flex justify-center self-center w-11/12 mx-auto border-black border-b-2 py-2 sticky top-0 z-[999]'>
             <section className='flex-4 justify-center mx-2'>
@@ -78,10 +79,10 @@ function HeaderLogin() {
             <Dropdown className="outline-none">
                 <section className='flex flex-4 justify-center self-center gap-2 cursor-pointer'>
                     <img src={(userData.photoURL) ? userData.photoURL : userIcon} alt="uesrIcon" className='w-10 h-10 object-contain rounded-full' />
-                    <h3 className='my-auto font-semibold text-[#696969]'>{userData.displayName ? userData.displayName : "Anonymous"}<span><Dropdown.Toggle className="outline-none hover:bg-transparent mx-1" style={{ color: "black", border: "none", background: "transparent" }}></Dropdown.Toggle></span></h3>
+                    <h3 className='my-auto font-semibold text-[#696969]'>{(profileData.data !== null) ? profileData.data.name : "Anonymous"}<span><Dropdown.Toggle className="outline-none hover:bg-transparent mx-1" style={{ color: "black", border: "none", background: "transparent" }}></Dropdown.Toggle></span></h3>
                 </section>
                 <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => { navigate("/") }}><PersonOutlineIcon className='my-auto'></PersonOutlineIcon><span className='my-auto mx-1'>My Profile</span></Dropdown.Item>
+                    <Dropdown.Item onClick={() => { navigate("/profile") }}><PersonOutlineIcon className='my-auto'></PersonOutlineIcon><span className='my-auto mx-1'>My Profile</span></Dropdown.Item>
                     <Dropdown.Item onClick={() => { logout() }}><LogoutIcon></LogoutIcon><span className='my-auto mx-1'>Logout</span></Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
