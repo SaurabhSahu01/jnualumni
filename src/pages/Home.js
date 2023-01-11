@@ -13,6 +13,7 @@ import Platform from '../components/HomePageComponents/Platform'
 import HomeExtras from '../components/HomePageComponents/HomeExtras'
 import ExtraTabs from '../components/HomePageComponents/ExtraTabs'
 import FinalHeader from '../components/FinalHeader';
+import EventGallary from "../pages/EventGallary"
 function Home() {
   const {setcurrentPage} = useUserAuthContext();
   useEffect(() => {
@@ -69,6 +70,7 @@ function Home() {
       <Platform />
       <HomeExtras />
       <ExtraTabs />
+      <EventGallary />
       <Footer></Footer>
     </div>
   )
