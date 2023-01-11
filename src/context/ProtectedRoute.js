@@ -11,7 +11,7 @@ export const ProtectedRoute = ({children})=> {
 
   // case of not logged in
   if(!userData){
-    if(children.type.name === "Signup"){
+    if(window.location.pathname === "/signup"){
       children = <Signup />
     }
     else{
