@@ -2,6 +2,7 @@ import { useUserAuthContext } from '../context/UserContext';
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Home from "../pages/Home";
+import Profile from "../pages/Profile"
 export const ProtectedRoute = ({children})=> {
     const {userData, profileData} = useUserAuthContext();
   // two cases  arise -> userData == null(not loggedin) and userData != null(logged in)
@@ -23,7 +24,10 @@ export const ProtectedRoute = ({children})=> {
   else if(userData !== null){
     // check if user's email is verified and profile is complete
     if(!userData.emailVerified || !profileData.profileCompleted){
-      children = <Home />
+      if(window.location.pathname === "/profile"){
+        children = <Profile />
+      }
+      else children = <Home />
     }
   }
 
