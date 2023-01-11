@@ -10,7 +10,6 @@ function About() {
     setcurrentPage(window.location.pathname)
   }, [])
   
-  setcurrentPage(window.location.pathname);
   return (
     <>
         <FinalHeader></FinalHeader>

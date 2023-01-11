@@ -12,7 +12,7 @@ import InputSelect from '../components/ProfileFormComponents/inputSelect'
 import InputText from '../components/ProfileFormComponents/inputText'
 function Profile() {
     const navigate = useNavigate();
-    const { userData, setProfileCompleted } = useUserAuthContext();
+    const { userData, setProfileCompleted, profileData } = useUserAuthContext();
     const [userProfile, setuserProfile] = useState({
         image: null,
         name: null,
@@ -42,11 +42,13 @@ function Profile() {
         setuserProfile({ ...userProfile, [name]: value })
     }
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setProfileCompleted(true);
-        navigate("/");
+        e.preventDefault();    
+        await setDoc(doc(db, "users", userData.uid), userProfile)
+        .then(()=>{
+            setProfileCompleted(true);
+            navigate("/");
+        })
     }
-    console.log(userProfile);
     return (
         <>
             <FinalHeader></FinalHeader>
