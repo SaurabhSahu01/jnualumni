@@ -21,7 +21,7 @@ function Home() {
   }, [])
   
   return (
-    <div className='relative'>
+    <div className='relative max-w-full'>
       <FinalHeader></FinalHeader>
       <div className="w-11/12 mx-auto my-[5.3rem] ">
         <Carousel className="h-[30rem]">

@@ -6,19 +6,19 @@ import { Home } from '@mui/icons-material';
 function Footer() {
     return (
         <div className="bg-blueaccent">
-            <div className='w-11/12 mx-auto grid grid-cols-3 gap-1 py-5 text-white'>
-                <div className='grid justify-items-center'>
-                    <p className='text-2xl font-bold'>USEFUL LINKS</p>
-                    <ul className='text-lg font-semibold'>
+            <div className='w-11/12 mx-auto flex flex-row flex-wrap py-5 text-white justify-around'>
+                <div className='flex flex-col items-center w-2/7'>
+                    <p className='text-2xl font-bold p-2'>USEFUL LINKS</p>
+                    <ul className='text-lg font-semibold p-2'>
                         <li className="mb-3">Join</li>
                         <li className="mb-3">About</li>
                         <li className="mb-3">Batchmates</li>
                         <li className="mb-3">Notice</li>
                     </ul>
                 </div>
-                <div className="grid justify-items-center">
-                    <p className='text-2xl font-bold'>SERVICES</p>
-                    <ul className='text-lg font-semibold'>
+                <div className="hidden lg:flex flex-col items-center w-2/7">
+                    <p className='text-2xl font-bold p-2'>SERVICES</p>
+                    <ul className='text-lg font-semibold p-2'>
                         <li className="mb-3">About Us</li>
                         <li className="mb-3">Terms and Conditions</li>
                         <li className="mb-3">Opportunities</li>
@@ -26,9 +26,9 @@ function Footer() {
                     </ul>
 
                 </div>
-                <div className="grid justify-items-center">
-                    <p className='text-2xl font-bold'>CONTACT</p>
-                    <ul className='mt-4 text-lg font-semibold'>
+                <div className="flex flex-col items-center w-3/7">
+                    <p className='text-2xl font-bold p-2'>CONTACT</p>
+                    <ul className='mt-4 text-lg font-semibold p-2'>
                         <li className="my-1 flex self-center">
                             <Home className='mx-2' fontSize='large'></Home>
                             <div className="flex-col">
