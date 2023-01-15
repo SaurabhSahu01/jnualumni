@@ -25,8 +25,8 @@ function MobileFooter() {
                         <li className="mb-1">Career</li>
                     </ul>
                 </div>
-                <div className="w-full mx-auto grid justify-items-center mt-4">
-                    <p className='text-2xl font-bold my-auto text-center tracking-widest border-gray-500 border-b-[1px]'>CONTACT</p>
+                <div className="w-full mx-auto grid justify-items-center">
+                    <p className='text-2xl font-bold my-5 text-center tracking-widest border-gray-500 border-b-[1px]'>CONTACT</p>
                     <ul className='w-full grid grid-cols-1 justify-center text-lg font-semibold my-4'>
                         <li className="my-1 flex justify-center">
                             <CallIcon className='justify-self-center' fontSize='large'></CallIcon>
