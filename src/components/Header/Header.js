@@ -1,8 +1,8 @@
 import React from 'react';
 import { memo } from "react";
 import { NavLink, Link } from "react-router-dom";
-import "../style/Navbar.css";
-import JNU from "../images/JNUlogopng.png";
+import "../../style/Navbar.css";
+import JNU from "../../images/JNUlogopng.png";
 import styled from 'styled-components';
 function Header() {
   return (

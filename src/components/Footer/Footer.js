@@ -11,7 +11,7 @@ function Footer() {
         query: '(min-width: 700px)'
       })
     const isDesktop = useMediaQuery({
-        query: '(min-width: 1300px)'
+        query: '(min-width: 870px)'
       })
     return (
         <>

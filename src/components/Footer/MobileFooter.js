@@ -8,8 +8,8 @@ function MobileFooter() {
     <div className="bg-blueaccent">
             <div className='w-11/12 h-full mx-auto grid grid-rows-3 text-white'>
                 <div className='grid justify-items-center border-gray-500 border-b-[1px]'>
-                    <p className='text-2xl font-bold my-auto text-center tracking-widest'>USEFUL LINKS</p>
-                    <ul className='text-lg font-semibold text-center my-auto'>
+                    <p className='text-2xl font-bold my-auto text-center tracking-widest border-gray-500 border-b-[1px]'>USEFUL LINKS</p>
+                    <ul className='text-lg font-semibold text-center place-items-center'>
                         <li className="mb-5">Join</li>
                         <li className="mb-5">About</li>
                         <li className="mb-5">Batchmates</li>
@@ -17,29 +17,29 @@ function MobileFooter() {
                     </ul>
                 </div>
                 <div className="grid justify-items-center border-gray-500 border-b-[1px]">
-                    <p className='text-2xl font-bold my-auto text-center tracking-widest'>SERVICES</p>
-                    <ul className='grid text-lg font-semibold text-center my-auto'>
+                    <p className='text-2xl font-bold my-auto text-center tracking-widest border-gray-500 border-b-[1px]'>SERVICES</p>
+                    <ul className='text-lg font-semibold text-center place-items-center'>
                         <li className="mb-5">About Us</li>
                         <li className="mb-5">Terms and Conditions</li>
                         <li className="mb-5">Opportunities</li>
                         <li className="mb-1">Career</li>
                     </ul>
                 </div>
-                <div className="grid justify-items-center mt-4">
-                    <p className='text-2xl font-bold my-auto text-center tracking-widest'>CONTACT</p>
-                    <ul className='text-lg font-semibold grid grid-cols-1 my-4'>
-                        <li className="my-1 grid grid-cols-10">
-                            <CallIcon className='mx-auto grid col-span-2' fontSize='large'></CallIcon>
-                            <div className="flex-col grid col-span-8">
+                <div className="w-full mx-auto grid justify-items-center mt-4">
+                    <p className='text-2xl font-bold my-auto text-center tracking-widest border-gray-500 border-b-[1px]'>CONTACT</p>
+                    <ul className='w-full grid grid-cols-1 justify-center text-lg font-semibold my-4'>
+                        <li className="my-1 flex justify-center">
+                            <CallIcon className='justify-self-center' fontSize='large'></CallIcon>
+                            <div className="w-6/12 flex-col tracking-wider ml-2">
                                 <p>Mr. Satyendra (Assistant Manager)</p>
                                 <p>+91-7011953096</p>
                                 <p>Dr. Maheep (Convernor Membership Drive)</p>
                                 <p>+91-9911963456</p>
                             </div>
                         </li>
-                        <li className="my-1 grid grid-cols-10">
-                            <Home className='mx-auto grid col-span-2' fontSize='large'></Home>
-                            <div className="flex-col grid col-span-8">
+                        <li className=" my-1 flex justify-center">
+                            <Home className='justify-self-center' fontSize='large'></Home>
+                            <div className="w-6/12 flex-col tracking-wider ml-2">
                                 <p>Alumni Association of JNU(AAJ)</p>
                                 <p>AAJ Office: Room No. 101</p>
                                 <p>JNU Convention Center,</p>
@@ -47,9 +47,9 @@ function MobileFooter() {
                                 <p>India</p>
                             </div>
                         </li>
-                        <li className="my-1 grid grid-cols-10">
-                            <EmailIcon className='mx-auto grid col-span-2' fontSize='large'></EmailIcon>
-                            <Link to="#" onClick={(e) => {
+                        <li className="my-1 flex justify-center">
+                            <EmailIcon className='justify-self-center' fontSize='large'></EmailIcon>
+                            <Link to="#" className="w-6/12 tracking-wider ml-2" onClick={(e) => {
                                     window.location.href = 'mailto: aajjnu1@gmail.com';
                                     e.preventDefault();
                                 }}>aajjnu1@gmail.com</Link>

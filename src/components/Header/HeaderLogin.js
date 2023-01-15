@@ -1,11 +1,11 @@
 import React from 'react'
-import { useUserAuthContext } from '../context/UserContext';
-import JNU from "../images/JNUlogopng.png";
+import { useUserAuthContext } from '../../context/UserContext';
+import JNU from "../../images/JNUlogopng.png";
 import HomeIcon from '@mui/icons-material/Home';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import WorkIcon from '@mui/icons-material/Work';
 import ForumIcon from '@mui/icons-material/Forum';
-import userIcon from "../icons/userIcon.png";
+import userIcon from "../../icons/userIcon.png";
 import InfoIcon from '@mui/icons-material/Info';
 import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import { useNavigate } from 'react-router-dom';

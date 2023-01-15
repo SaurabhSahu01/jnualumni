@@ -3,7 +3,7 @@ import Footer from '../components/Footer/Footer'
 import TeamCard from '../components/TeamCard'
 import image from '../images/TeamCard.jpg' 
 import { useUserAuthContext } from '../context/UserContext';
-import FinalHeader from '../components/FinalHeader';
+import FinalHeader from '../components/Header/FinalHeader';
 function About() {
   const {setcurrentPage} = useUserAuthContext();
   useEffect(() => {

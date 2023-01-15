@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import FinalHeader from '../components/FinalHeader'
+import FinalHeader from '../components/Header/FinalHeader'
 import Footer from '../components/Footer/Footer'
 import FeedCards from '../components/FeedCards';
 import AddPost from '../components/AddPost';

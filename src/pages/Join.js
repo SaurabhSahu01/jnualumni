@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import Footer from '../components/Footer/Footer'
 import { useUserAuthContext } from '../context/UserContext';
-import FinalHeader from '../components/FinalHeader';
+import FinalHeader from '../components/Header/FinalHeader';
 function Join() {
   const {setcurrentPage} = useUserAuthContext();
   useEffect(() => {

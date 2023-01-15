@@ -12,7 +12,7 @@ import { useUserAuthContext } from '../context/UserContext';
 import Platform from '../components/HomePageComponents/Platform'
 import HomeExtras from '../components/HomePageComponents/HomeExtras'
 import ExtraTabs from '../components/HomePageComponents/ExtraTabs'
-import FinalHeader from '../components/FinalHeader';
+import FinalHeader from '../components/Header/FinalHeader';
 import EventGallary from "../pages/EventGallary"
 function Home() {
   const {setcurrentPage} = useUserAuthContext();
