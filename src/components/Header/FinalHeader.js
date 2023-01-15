@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from "./Header"
+import MobileHeader from "./Mobileheader";
 import HeaderLogin from "./HeaderLogin"
 import MobileHeaderLogin from "./MobileHeaderLogin"
 import { useUserAuthContext } from '../../context/UserContext'
@@ -18,7 +19,7 @@ function FinalHeader() {
   return (
     <>
         {logInProgress ? <Loader></Loader> : <></>}
-        {(userData) ? (isDesktop ? <HeaderLogin></HeaderLogin> : (isMobile ? <MobileHeaderLogin></MobileHeaderLogin> : <></>)): (<Header></Header>)}
+        {(userData) ? (isDesktop ? <HeaderLogin></HeaderLogin> : (isMobile ? <MobileHeaderLogin></MobileHeaderLogin> : <></>)): (isDesktop ? <Header></Header> : (isMobile ? <MobileHeader></MobileHeader> : <></>))}
     </>
   )
 }
