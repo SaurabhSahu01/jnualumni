@@ -36,7 +36,7 @@ function ShowGallary() {
 
     return (
         <div className='show__gallary'>
-        <div className='event__name'> Gallary</div>
+        <div className='event__name'> Gallery</div>
         {imagearr.map((image)=>{
             return<><Card style={{ width: '18rem' }}> <Card.Img variant="top" src={image.imageurl}  key={Math.random()}/>  <Card.Body >{image.title}</Card.Body>  </Card> <br></br></>
         })}

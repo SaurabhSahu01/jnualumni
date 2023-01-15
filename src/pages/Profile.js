@@ -6,7 +6,7 @@ import { db } from "../firebase/firebase"
 import { doc, setDoc } from "firebase/firestore"
 import { useUserAuthContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
-import FinalHeader from '../components/FinalHeader'
+import FinalHeader from '../components/Header/FinalHeader'
 import data from '../data/ProfileData.json'
 import InputSelect from '../components/ProfileFormComponents/inputSelect'
 import InputText from '../components/ProfileFormComponents/inputText'

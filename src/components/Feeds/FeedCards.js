@@ -1,5 +1,5 @@
 import React from 'react'
-import userIcon from "../icons/userIcon.png"
+import userIcon from "../../icons/userIcon.png"
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
@@ -25,7 +25,7 @@ function FeedCards(props) {
         </div>
         <div className='grid grid-cols-2 place-items-center py-2'>
             <div className='flex justify-center gap-1'>
-                {(liked) ? (<FavoriteIcon onClick={likeButton}></FavoriteIcon>) : ( <FavoriteBorderIcon onClick={likeButton}></FavoriteBorderIcon>)}
+                {(liked) ? (<FavoriteIcon onClick={likeButton} style={{color: "red",}}></FavoriteIcon>) : ( <FavoriteBorderIcon onClick={likeButton}></FavoriteBorderIcon>)}
                 <p>0 Likes</p>
             </div>
             <div className='flex justify-center gap-1'>
