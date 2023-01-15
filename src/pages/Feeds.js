@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import FinalHeader from '../components/FinalHeader'
-import Footer from '../components/Footer'
+import Footer from '../components/Footer/Footer'
 import FeedCards from '../components/FeedCards';
 import AddPost from '../components/AddPost';
 import EventCard from '../components/EventCard';

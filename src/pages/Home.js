@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import Cards from "../components/Cards";
-import Footer from '../components/Footer'
+import Footer from '../components/Footer/Footer'
 import Car1 from '../images/Carousel1.webp'
 import Car2 from '../images/Carousel2.webp'
 import Car3 from '../images/Carousel3.webp'

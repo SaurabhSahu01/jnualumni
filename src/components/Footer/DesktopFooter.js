@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
 import { Link } from "react-router-dom";
 import { Home } from '@mui/icons-material';
-function Footer() {
-    return (
-        <div className="bg-blueaccent">
+function DesktopFooter() {
+  return (
+    <div className="bg-blueaccent">
             <div className='w-11/12 mx-auto grid grid-cols-3 gap-1 py-5 text-white'>
                 <div className='grid justify-items-center'>
                     <p className='text-2xl font-bold'>USEFUL LINKS</p>
@@ -59,7 +59,7 @@ function Footer() {
                 </div>
             </div>
         </div>
-    )
+  )
 }
 
-export default Footer
+export default DesktopFooter

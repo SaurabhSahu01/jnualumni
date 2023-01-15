@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import Footer from '../components/Footer'
+import Footer from '../components/Footer/Footer'
 import TeamCard from '../components/TeamCard'
 import image from '../images/TeamCard.jpg' 
 import { useUserAuthContext } from '../context/UserContext';
