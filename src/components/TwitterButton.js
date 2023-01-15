@@ -6,7 +6,7 @@ function TwitterButton() {
             <img
                 src={Twitter}
                 alt="sign in with twitter"
-                className='mx-1'
+                className='mx-2'
             />
             <span className='my-auto mx-3 text-white'>Sign in with Twitter</span>
         </div>
