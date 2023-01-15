@@ -30,7 +30,7 @@ function TabFooter() {
                 </div>
                 <div className="w-full mx-auto grid justify-items-center mt-4">
                     <p className='text-2xl font-bold my-auto text-center tracking-widest border-gray-500 border-b-[1px]'>CONTACT</p>
-                    <ul className='w-full grid grid-cols-3 justify-center text-lg font-semibold my-4'>
+                    <ul className='w-full flex justify-center text-lg font-semibold my-4 gap-5'>
                         <li className="my-1 flex justify-center">
                             <CallIcon className='justify-self-center' fontSize='large'></CallIcon>
                             <div className="flex-col tracking-wider ml-2">

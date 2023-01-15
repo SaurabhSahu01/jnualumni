@@ -30,7 +30,7 @@ function HeaderLogin() {
             <section className='flex-4 justify-center self-center mx-auto'>
                 <ul className='grid grid-cols-6 justify-center self-center' id="navbar">
                     {(currentPage === "/") ? (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/") }}>
-                        <HomeIcon className='mx-auto' style={{ color: "black" }}></HomeIcon>
+                        <HomeIcon className='mx-auto' style={{ color: "#0c437b" }}></HomeIcon>
                         <p className="text-[12px] my-0 text-center text-[black] font-medium">Home</p>
                     </li>) : (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/") }}>
                         <HomeIcon className='mx-auto' style={{ color: "#696969" }}></HomeIcon>
@@ -38,7 +38,7 @@ function HeaderLogin() {
                     </li>)}
 
                     {(currentPage === "/feeds") ? (<li className="flex flex-col cursor-pointer" onClick={() => {navigate("/feeds")}}>
-                        <NewspaperIcon className='mx-auto' style={{ color: "black" }}></NewspaperIcon>
+                        <NewspaperIcon className='mx-auto' style={{ color: "#0c437b" }}></NewspaperIcon>
                         <p className="text-[12px] my-0 text-center text-[black] font-medium">Feeds</p>
                     </li>) : (<li className="flex flex-col cursor-pointer" onClick={() => navigate("/feeds")}>
                         <NewspaperIcon className='mx-auto' style={{ color: "#696969" }}></NewspaperIcon>
@@ -51,7 +51,7 @@ function HeaderLogin() {
                     </li>
 
                     {(currentPage === "/jobs") ? (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/jobs") }}>
-                        <WorkIcon className='mx-auto' style={{ color: "black" }}></WorkIcon>
+                        <WorkIcon className='mx-auto' style={{ color: "#0c437b" }}></WorkIcon>
                         <p className="text-[12px] my-0 text-center text-[black] font-medium">Jobs</p>
                     </li>) : (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/jobs") }}>
                         <WorkIcon className='mx-auto' style={{ color: "#696969" }}></WorkIcon>
@@ -59,7 +59,7 @@ function HeaderLogin() {
                     </li>)}
 
                     {(currentPage === "/join") ? (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/join") }}>
-                        <LoyaltyIcon className='mx-auto' style={{ color: "black" }}></LoyaltyIcon>
+                        <LoyaltyIcon className='mx-auto' style={{ color: "#0c437b" }}></LoyaltyIcon>
                         <p className="text-[12px] my-0 text-center text-[black] font-medium">Membership</p>
                     </li>) : (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/join") }}>
                         <LoyaltyIcon className='mx-auto' style={{ color: "#696969" }}></LoyaltyIcon>
@@ -67,7 +67,7 @@ function HeaderLogin() {
                     </li>)}
 
                     {(currentPage === "/about") ? (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/about") }}>
-                        <InfoIcon className='mx-auto' style={{ color: "black" }}></InfoIcon>
+                        <InfoIcon className='mx-auto' style={{ color: "#0c437b" }}></InfoIcon>
                         <p className="text-[12px] my-0 text-center text-[black] font-medium">About</p>
                     </li>) : (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/about") }}>
                         <InfoIcon className='mx-auto' style={{ color: "#696969" }}></InfoIcon>
