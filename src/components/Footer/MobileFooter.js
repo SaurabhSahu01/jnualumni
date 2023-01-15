@@ -49,7 +49,7 @@ function MobileFooter() {
                         </li>
                         <li className="my-1 flex justify-center">
                             <EmailIcon className='justify-self-center' fontSize='large'></EmailIcon>
-                            <Link to="#" className="w-6/12 tracking-wider ml-2" onClick={(e) => {
+                            <Link to="#" className="w-6/12 tracking-wider ml-2 mb-4" onClick={(e) => {
                                     window.location.href = 'mailto: aajjnu1@gmail.com';
                                     e.preventDefault();
                                 }}>aajjnu1@gmail.com</Link>
