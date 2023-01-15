@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import Footer from '../components/Footer'
+import Footer from '../components/Footer/Footer'
 import { useUserAuthContext } from '../context/UserContext';
 import Platform from '../components/HomePageComponents/Platform'
 import HomeExtras from '../components/HomePageComponents/HomeExtras'
