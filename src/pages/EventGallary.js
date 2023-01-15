@@ -7,9 +7,13 @@ import "./Pages.css"
 
 function EventGallary() {
   return (
-    <div className='event__gallary' >
-       <ShowEvent/>
-       <ShowGallary/>
+    <div className='event__gallary flex flex-wrap flex-center' >
+      <div className='p-3'>
+        <ShowEvent />
+      </div>
+      <div className='p-3'>
+        <ShowGallary />
+      </div>
     </div>
   )
 }
