@@ -15,7 +15,7 @@ function Home() {
   }, [])
   
   return (
-    <div className='relative max-w-full'>
+    <div className='relative max-w-full min-w-[350px]'>
       <FinalHeader></FinalHeader>
       <HomeCarousel />
       <NotableAlumni />

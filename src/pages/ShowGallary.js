@@ -38,7 +38,15 @@ function ShowGallary() {
         <div className='show__gallary'>
         <div className='event__name'> Gallery</div>
         {imagearr.map((image)=>{
-            return<><Card style={{ width: '18rem' }}> <Card.Img variant="top" src={image.imageurl}  key={Math.random()}/>  <Card.Body >{image.title}</Card.Body>  </Card> <br></br></>
+            return(
+            <div div className='sm:w-[18rem] w-[12rem] '>
+            <Card >
+                 <Card.Img variant="top" src={image.imageurl}  key={Math.random()}/>  
+            <Card.Body >{image.title}</Card.Body>  
+            </Card> 
+            <br></br>
+            </div>
+            )
         })}
            
          
