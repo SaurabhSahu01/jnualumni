@@ -25,7 +25,6 @@ function Login() {
       return true;
     }
     else return false;
-
   }
   const handleUsername = (e) => {
     setloginerr(false);
@@ -62,8 +61,8 @@ function Login() {
   return (
     <>
       {/* <Header></Header> */}
-      <div className="w-full mx-auto h-[100vh] grid place-items-center ">
-        <div className="w-10/12 rounded-2xl py-8 bg-[#89c1fd8e] flex flex-col justify-center items-center gap-4">
+      <div className="w-full h-[100vh] grid place-items-center ">
+        <div className="lg:w-1/3 sm:w-[360px] min-w-[300px] rounded-2xl py-8 bg-[#89c1fd8e] flex flex-col justify-center items-center gap-4">
           <h1 className="text-3xl text-black font-semibold">Sign In</h1>
           <div className="flex w-4/5 flex-col gap-2">
             <div className="flex flex-col gap-1">
