@@ -11,7 +11,18 @@ export const ProtectedRoute = ({ children }) => {
   // we have to protect our routes in both the cases
   // stop the non-logged in user 
   // stop the non-verified user
-
+  function notify(){
+    toast.warn("Please Sign In First!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    })
+  }
 
   // case of not logged in
   if (!userData) {
@@ -24,16 +35,7 @@ export const ProtectedRoute = ({ children }) => {
     else {
       children = <>
         <Login />
-        {toast.warn("Please Sign In First!", {
-          position: "top-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        })}
+        {notify()}
         <ToastContainer /> 
       </>
     }
