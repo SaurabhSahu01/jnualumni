@@ -38,7 +38,7 @@ function ShowEvent() {
         <div className='show__event' >
         <div className='event__name'> Event</div>
         {imagearr.map((image)=>{
-            return<><Card style={{ width: '18rem' }} key={Math.random()}>  <Card.Body >{image.title}</Card.Body>  </Card> <br></br></>
+            return<><Card className="w-11/12" key={Math.random()}>  <Card.Body >{image.title}</Card.Body>  </Card> <br></br></>
         })}
            
          
