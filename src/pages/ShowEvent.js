@@ -6,7 +6,7 @@ import {db} from '../firebase/firebase';
 import { collection, doc,getDocs } from "firebase/firestore";
 import "./Pages.css"
 
-function ShowEvent() {
+function ShowEvent() { // do optimisation
 
   const[imagearr, setimagearr] = useState([])
     
