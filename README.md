@@ -3,7 +3,7 @@
 
 ```
 ## Contributors
-- Abhishek Sing
+- Abhishek Singh
 - Raman Kumar
 - Satya Prakash
 - Saurabh Sahu
