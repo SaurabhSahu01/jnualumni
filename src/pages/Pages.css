@@ -46,9 +46,30 @@
          padding:5px;
         
          margin-bottom: 5%;
-         margin-left: 33%;
+         /* margin-left: 33%; */
      font-size: 200%;
      color: white;
      position: static;
          
         }
+
+
+        .scrolling-wrapper{
+          overflow-x: auto;
+        }
+
+        .scrolling-wrapper::-webkit-scrollbar {
+          display: none;
+        }
+        
+        .top-card{
+            width: 500px;
+            height: auto;
+            /* border-radius: 10px; */
+        }
+
+        .bottom-card{
+          width: 350px;
+          height: auto;
+          /* border-radius: 10px; */
+      }
