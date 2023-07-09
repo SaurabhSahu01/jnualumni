@@ -6,6 +6,7 @@ import {db} from '../firebase/firebase';
 import { collection, doc,getDocs } from "firebase/firestore";
 import "./Pages.css"
 import FinalHeader from '../components/Header/FinalHeader';
+import Footer from '../components/Footer/Footer'
 
 
 function ShowGallary() {
@@ -38,40 +39,36 @@ function ShowGallary() {
 
     return (
 
-        <div className=''>
-                  <FinalHeader></FinalHeader>
+    <div>
+            <FinalHeader></FinalHeader>
 
-        {/* <div className='event__name float-left'> Gallery</div> */}
-
-
-        <div class="container mb-6">
-    <h6 class="mt-5  fs-1 fw-bold">Gallary</h6>
-    <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
+            <div className="container mb-6">
+            <h6 className="mt-5  fs-1 fw-bold">Gallary</h6>
+            <div className="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
 			
-{/* Horizontal image scroll  */}
+            {/* Horizontal image scroll  */}
 
 
-{imagearr.map((image)=>{
+            {imagearr.map((image)=>{
             return<>
-       	<div class="col-5  "style={{marginRight:'-6%'}}>
+       	    <div className="col-5  "style={{marginRight:'-6%'}}>
 
-				<div class="card card-block card-1 top-card " >
-                    <img src={image.imageurl} alt="" srcset="" style={{borderRadius:'10px',height:'350px'}}  />
-                </div>                
+                    <div className="content top-card">
+                    <div className="content-overlay"></div> <img className="content-image" src={image.imageurl} />
+                    <div className="content-details fadeIn-bottom">
+                         <h3 className="content-title">{image.title}</h3>
+                         {/* <p className="content-text"><i className="fa fa-map-marker"></i> Russia</p> */}
+                    </div>
+                    </div>            
 
-			</div>     
-            
-            
+			</div>  
             </>
         })}
 
 
-		
-
-
-    
-    </div>
-</div>
+	 
+            </div>
+        </div>
 
 
       
@@ -80,23 +77,24 @@ function ShowGallary() {
 
 
 
-           <div class="container">
+    <div className="container">
+{/* verical image cards */}
+    <div className="row row-cols-4">
 
-  <div class="row row-cols-4">
+    {imagearr.map((image)=>{
+    return<>
 
-  {imagearr.map((image)=>{
+    <div className="col mb-5">
+        
+    <div className="content-bottom "> 
+        <div className="content-overlay"></div> <img className="img-fluid content-image" src={image.imageurl} />
+        <div className="content-details fadeIn-bottom">
+        <h3 className="content-title">{image.title}</h3>
+            {/* <p className="content-text"><i className="fa fa-map-marker"></i> Russia</p> */}
+        </div>
+        </div>            
 
-return<>
-
-<div class="col mb-5">
-    
-
-<div class="card card-block card-1 bottom-card " >
-    <img src={image.imageurl} alt="" srcset="" style={{borderRadius:'10px',height:'250px'}}  />
-</div>                
-
-    
-</div>
+    </div>  
 
 
 </>
@@ -107,7 +105,8 @@ return<>
 </div>
 
 
-         
+<Footer></Footer>
+ 
         </div>
     )
 }
