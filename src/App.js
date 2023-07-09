@@ -15,6 +15,7 @@ import AddEvent from "./pages/AddEvent"
 import ShowGallary from "./pages/ShowGallary"
 import ShowEvent from "./pages/ShowEvent"
 import EventGallary from "./pages/EventGallary"
+import Gallery from "./pages/Gallery";
 
 function App() {
   const [welcomeLoading, setwelcomeLoading] = useState(true);
@@ -42,6 +43,8 @@ function App() {
         <Route path="/addevent" exact={true} element={<AddEvent/>}></Route> 
         <Route path="/showevent" exact={true} element={<ShowEvent/>}></Route>
         <Route path="/show" exact={true} element={<EventGallary/>}></Route> 
+        <Route path="/Gallary" exact element={<ProtectedRoute><Gallery /></ProtectedRoute>}></Route>
+
       </Routes>
       </UserContextProvider>) : <></>}  
     </>

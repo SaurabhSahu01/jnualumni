@@ -28,7 +28,7 @@ function HeaderLogin() {
                 </div>
             </section>
             <section className='flex-4 justify-center self-center mx-auto'>
-                <ul className='grid grid-cols-6 justify-center self-center' id="navbar">
+                <ul className='grid grid-cols-7 justify-center self-center' id="navbar">
                     {(currentPage === "/") ? (<li className="flex flex-col cursor-pointer" onClick={() => { navigate("/") }}>
                         <HomeIcon className='mx-auto' style={{ color: "#0c437b" }}></HomeIcon>
                         <p className="text-[12px] my-0 text-center text-[black] font-medium">Home</p>
@@ -44,6 +44,15 @@ function HeaderLogin() {
                         <NewspaperIcon className='mx-auto' style={{ color: "#696969" }}></NewspaperIcon>
                         <p className="text-[12px] my-0 text-center text-[#696969] font-medium">Feeds</p>
                     </li>)}
+
+                    {(currentPage === "/gallary") ? (<li className="flex flex-col cursor-pointer" onClick={() => {navigate("/gallary")}}>
+                        <NewspaperIcon className='mx-auto' style={{ color: "#0c437b" }}></NewspaperIcon>
+                        <p className="text-[12px] my-0 text-center text-[black] font-medium">Gallary</p>
+                    </li>) : (<li className="flex flex-col cursor-pointer" onClick={() => navigate("/gallary")}>
+                        <NewspaperIcon className='mx-auto' style={{ color: "#696969" }}></NewspaperIcon>
+                        <p className="text-[12px] my-0 text-center text-[#696969] font-medium">Gallary</p>
+                    </li>)}
+                    
                     
                     <li className="flex flex-col cursor-pointer">
                         <ForumIcon className='mx-auto' style={{ color: "#696969" }}></ForumIcon>

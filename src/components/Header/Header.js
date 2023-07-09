@@ -28,6 +28,7 @@ function Header() {
             <li className="transition duration-200 hover:scale-125">
               <StyledNavLink exact className="text-2xl font-semibold" to="/about">ABOUT</StyledNavLink>
             </li>
+            
             <li className="transition duration-200 hover:scale-125">
               <StyledNavLink exact className="text-2xl font-semibold" to="/join">JOIN</StyledNavLink>
             </li>

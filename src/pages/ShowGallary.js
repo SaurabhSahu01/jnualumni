@@ -39,75 +39,16 @@ function ShowGallary() {
 
     return (
 
-    <div>
-            <FinalHeader></FinalHeader>
-
-            <div className="container mb-6">
-            <h6 className="mt-5  fs-1 fw-bold">Gallary</h6>
-            <div className="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2">
-			
-            {/* Horizontal image scroll  */}
-
-
-            {imagearr.map((image)=>{
-            return<>
-       	    <div className="col-5  "style={{marginRight:'-6%'}}>
-
-                    <div className="content top-card">
-                    <div className="content-overlay"></div> <img className="content-image" src={image.imageurl} />
-                    <div className="content-details fadeIn-bottom">
-                         <h3 className="content-title">{image.title}</h3>
-                         {/* <p className="content-text"><i className="fa fa-map-marker"></i> Russia</p> */}
-                    </div>
-                    </div>            
-
-			</div>  
-            </>
+        <div className='show__gallary'>
+        <div className='event__name'> Gallery</div>
+        {imagearr.map((image)=>{
+            return<><Card style={{ width: '18rem' }}> <Card.Img variant="top" src={image.imageurl}  key={Math.random()}/>  <Card.Body >{image.title}</Card.Body>  </Card> <br></br></>
         })}
-
-
-	 
-            </div>
-        </div>
-
-
-      
            
-
-
-
-
-    <div className="container">
-{/* verical image cards */}
-    <div className="row row-cols-4">
-
-    {imagearr.map((image)=>{
-    return<>
-
-    <div className="col mb-5">
+         
+        </div>
         
-    <div className="content-bottom "> 
-        <div className="content-overlay"></div> <img className="img-fluid content-image" src={image.imageurl} />
-        <div className="content-details fadeIn-bottom">
-        <h3 className="content-title">{image.title}</h3>
-            {/* <p className="content-text"><i className="fa fa-map-marker"></i> Russia</p> */}
-        </div>
-        </div>            
-
-    </div>  
-
-
-</>
-      })}
-
- 
-  </div>
-</div>
-
-
-<Footer></Footer>
- 
-        </div>
+    
     )
 }
 
