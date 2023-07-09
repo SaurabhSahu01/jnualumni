@@ -15,7 +15,7 @@ function Header() {
           <div className="h-20 w-fit flex justify-between">
             <img className="h-auto mr-3" src={JNU} alt="JNU_logo" />
             <div className='flex-col justify-between my-auto'>
-              <span className='text-3xl font-bold select-none'>Alumni Association of JNU</span>
+              <span className='text-3xl font-bold select-none'> JNU ALUMNI ASSOCIATION(REGD.)</span>
               <h4 className='font-semibold select-none'>Jawaharlal Nehru University</h4>
             </div>
           </div>

@@ -23,7 +23,7 @@ function HeaderLogin() {
                 <div className="h-10 w-fit flex justify-between">
                     <img className="h-auto mr-3" src={JNU} alt="JNU_logo" />
                     <div className='flex-col justify-between h-fit my-auto'>
-                        <span className='text-[18px] font-bold select-none'>Alumni Association of JNU</span>
+                        <span className='text-[18px] font-bold select-none'>JNU ALUMNI ASSOCIATION(REGD.)</span>
                     </div>
                 </div>
             </section>

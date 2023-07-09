@@ -7,7 +7,7 @@ import Location from '../../icons/location.png'
 const Platform = () => {
     return (
         <div className="w-11/12 mx-auto">
-            <span className='text-blueaccent flex justify-center self-center text-3xl font-semibold'>AAJ Alumni Platform</span>
+            <span className='text-blueaccent flex justify-center self-center text-3xl font-semibold'>JAA  Alumni Platform</span>
             <div className='flex justify-center self-center my-5 flex-wrap'>
                 <div className='lg:w-1/4 sm:w-1/2 w-full p-3'>
                 <PlatformCard src={User} desc="Explore complete Alumni directory & connect with Alumni with your interests & domain" title="Alumni Directory"></PlatformCard>

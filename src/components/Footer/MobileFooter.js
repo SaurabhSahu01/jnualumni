@@ -40,8 +40,8 @@ function MobileFooter() {
                         <li className=" my-1 flex justify-center">
                             <Home className='justify-self-center' fontSize='large'></Home>
                             <div className="w-6/12 flex-col tracking-wider ml-2">
-                                <p>Alumni Association of JNU(AAJ)</p>
-                                <p>AAJ Office: Room No. 101</p>
+                                <p>JNU ALUMNI ASSOCIATION(REGD.)</p>
+                                <p> Office: Room No. 101</p>
                                 <p>JNU Convention Center,</p>
                                 <p>JNU, New Delhi-110067,</p>
                                 <p>India</p>
@@ -50,9 +50,9 @@ function MobileFooter() {
                         <li className="my-1 flex justify-center">
                             <EmailIcon className='justify-self-center' fontSize='large'></EmailIcon>
                             <Link to="#" className="w-6/12 tracking-wider ml-2 mb-4" onClick={(e) => {
-                                    window.location.href = 'mailto: aajjnu1@gmail.com';
+                                    window.location.href = 'mailto: JAA jnu1@gmail.com';
                                     e.preventDefault();
-                                }}>aajjnu1@gmail.com</Link>
+                                }}>JAA jnu1@gmail.com</Link>
                         </li>   
                     </ul>
                 </div>
